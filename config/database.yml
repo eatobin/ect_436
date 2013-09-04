@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: ect_436_development
+  pool: 5
+  timeout: 5000
+  username: ericky
+  password: ericky
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: ect_436_test
+  pool: 5
+  username: ericky
+  password: ericky
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ect436_production
+  pool: 5
+  username: ericky
+  password: ericky
+  host: localhost

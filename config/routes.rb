@@ -1,9 +1,12 @@
 Ect436::Application.routes.draw do
+  root 'one#home2'
+  match '/hw2', to: 'two#home2', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'one#home'
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

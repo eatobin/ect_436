@@ -1,0 +1,15 @@
+<% provide(:title, '2') %>
+<body onLoad="document.myForm.forwardString.focus()">
+<h1>Who is this strange guy?:</h1>
+<%= image_tag "EATBWHeadShot.JPG" %>
+
+<h3>Doesn't matter... He says:</h3>
+
+<form action="hw2p2.php" method="get" name="myForm"><label>
+  Type a sentence and I'll reverse it (50 characters max): <br/>
+</label> <br/>
+  <input name="forwardString" type="text" value="" size="50"
+         maxlength="50"/> <br/>
+  <br/>
+  <input type="submit" value="Send It!"/></form>
+</body>

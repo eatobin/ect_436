@@ -1,5 +1,5 @@
 Ect436::Application.routes.draw do
-  root 'one#home2'
+  root 'one#home'
   match '/hw2', to: 'two#home2', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.

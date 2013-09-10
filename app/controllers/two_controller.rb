@@ -1,4 +1,4 @@
 class TwoController < ApplicationController
-  def home2
+  def hw2
   end
 end

@@ -1,6 +1,6 @@
 Ect436::Application.routes.draw do
   root 'one#home'
-  match '/hw2', to: 'two#home2', via: 'get'
+  match '/hw2', to: 'two#hw2', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

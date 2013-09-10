@@ -9,4 +9,11 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  # Renders a header if not home page
+  def render_header_conditionally(page_title)
+    unless page_title.empty?
+      render(:partial => 'layouts/header')
+    end
+  end
 end

@@ -5,11 +5,11 @@
 
 <h3>Doesn't matter... He says:</h3>
 
-<form action="hw2p2.html.erb" method="get" name="myForm"><label>
-  Type a sentence and I'll reverse it (50 characters max): <br/>
-</label> <br/>
-  <input name="forwardString" type="text" value="" size="50"
-         maxlength="50"/> <br/>
-  <br/>
-  <input type="submit" value="Send It!"/></form>
+<%= form_tag("/hw2p2", method: "get") do %>
+    <%= label_tag(:q, "Type a sentence and I'll reverse it (50 characters max):") %>
+    <br/>
+    <br/>
+    <%= text_field_tag(:q, nil, {:maxlength => 50, :autofocus => true}) %>
+    <%= submit_tag("Send It!") %>
+<% end %>
 </body>

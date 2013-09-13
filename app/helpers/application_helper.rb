@@ -16,4 +16,9 @@ module ApplicationHelper
       render(:partial => 'layouts/header')
     end
   end
+
+  # Sets focus on page load
+  def set_focus_to_id(id)
+    javascript_tag("$('#{id}').focus()")
+  end
 end

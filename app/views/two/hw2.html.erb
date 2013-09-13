@@ -1,15 +1,14 @@
 <% provide(:title, '2') %>
-<body onLoad="document.myForm.forwardString.focus()">
+<% set_focus_to_id(:q) %>
 <h1>Who is this strange guy?:</h1>
 <%= image_tag "EATBWHeadShot.JPG" %>
 
 <h3>Doesn't matter... He says:</h3>
 
-<%= form_tag("/hw2p2", method: "get") do %>
-    <%= label_tag(:q, "Type a sentence and I'll reverse it (50 characters max):") %>
+<%= form_tag(hw2p2_path, method: "get") do %>
+    <%= label_tag(:query, "Type a sentence and I'll reverse it (50 characters max):") %>
     <br/>
     <br/>
-    <%= text_field_tag(:q, nil, {:maxlength => 50, :autofocus => true}) %>
+    <%= text_field_tag(:query, nil, {:maxlength => 50, :autofocus => true}) %>
     <%= submit_tag("Send It!") %>
 <% end %>
-</body>

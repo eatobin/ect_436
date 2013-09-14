@@ -30,7 +30,7 @@ describe "Homework 2" do
   describe "HW 2 Page 2" do
     before do
       visit hw2_path
-      fill_in(:query, :with => 'This is a test!')
+      fill_in(:query, {:with => 'This is a test!'})
       click_button("Send It!")
     end
 

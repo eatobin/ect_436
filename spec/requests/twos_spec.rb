@@ -2,27 +2,22 @@ require 'spec_helper'
 
 describe "Homework 2" do
 
-  let(:base_title) { "EAT ECT 436" }
-
   describe "HW2 Home Page" do
+    before { visit hw2_path }
 
     it "should have the title 'EAT ECT 436 | 2'" do
-      visit hw2_path
-      expect(page).to have_title("#{base_title} | #{'2'}")
+      expect(page).to have_selector('title', {:text => full_title('2'), :visible => false})
     end
 
-    it "should have the content 'Who is this strange guy?:'" do
-      visit hw2_path
-      expect(page).to have_content('Who is this strange guy?:')
+    it "should have the h1 content 'Who is this strange guy?:'" do
+      expect(page).to have_selector('h1', {:text => 'Who is this strange guy?:'})
     end
 
     it "should have a header containing 'Return Home'" do
-      visit hw2_path
-      expect(page).to have_content('Return Home')
+      expect(page).to have_link('Return Home', href: root_path)
     end
 
     it "should have a text input field named ':query'" do
-      visit hw2_path
       expect(page).to have_field(:query)
     end
   end
@@ -35,11 +30,10 @@ describe "Homework 2" do
     end
 
     it "should have the title 'EAT ECT 436 | 2 - 2'" do
-      expect(page).to have_title("#{base_title} | #{'2 - 2'}")
+      expect(page).to have_selector('title', {:text => full_title('2 - 2'), :visible => false})
     end
 
     it "should have a header containing 'Return Home'" do
-      visit hw2_path
       expect(page).to have_content('Return Home')
     end
 

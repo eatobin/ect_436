@@ -17,7 +17,7 @@ describe "Homework 1" do
       expect(page).to have_selector('h1', {:text => 'Welcome!'})
     end
 
-    it "should not have a header containing 'Return Home'" do
+    it "should not have a header containing 'Return Home' link" do
       expect(page).not_to have_link('Return Home', href: root_path)
     end
   end

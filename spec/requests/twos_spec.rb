@@ -13,7 +13,7 @@ describe "Homework 2" do
       expect(page).to have_selector('h1', {:text => 'Who is this strange guy?:'})
     end
 
-    it "should have a header containing 'Return Home'" do
+    it "should have a header containing 'Return Home' link" do
       expect(page).to have_link('Return Home', href: root_path)
     end
 
@@ -33,8 +33,8 @@ describe "Homework 2" do
       expect(page).to have_selector('title', {:text => full_title('2 - 2'), :visible => false})
     end
 
-    it "should have a header containing 'Return Home'" do
-      expect(page).to have_content('Return Home')
+    it "should have a header containing 'Return Home' link" do
+      expect(page).to have_link('Return Home', href: root_path)
     end
 
     it "should have the content 'This is a test!'" do

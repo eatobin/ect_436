@@ -1,0 +1,116 @@
+<% provide(:title, '3') %>
+<h1>I hear you're planning a little trip:</h1>
+
+<%= form_tag(hw3_path, {:method => "get"}) do %>
+    <%= label_tag(:state, "Which state do you plan to visit?:") %>
+    <br/>
+    <%= select_tag(:state, options_for_select([['Texas', 'TX'],
+                                               ['Illinois', 'IL'],
+                                               ['Arizona', 'AZ'],
+                                               ['North Dakota', 'ND'],
+                                               ['South Dakota', 'SD']], 1)) %>
+    <br/>
+    <%= submit_tag("Send It!") %>
+<% end %>
+
+
+
+
+
+<!--if (!filter_has_var(INPUT_POST, "state"))-->
+<!--{-->
+<!--echo "-->
+<!--<form action='hw3.php' method='post'>\n";-->
+
+<!--echo "<p>\n";-->
+<!--echo "What kind of pet will you bring with you?:<br/>\n";-->
+<!--echo "<input type='radio' name='pet' value='dog' checked='checked'/> Dog<br/>\n";-->
+<!--echo "<input type='radio' name='pet' value='cat'/> Cat<br/>\n";-->
+<!--echo "<input type='radio' name='pet' value='horse'/> Horse<br/>\n";-->
+<!--echo "<input type='radio' name='pet' value='fox'/> Fox<br/>\n";-->
+<!--echo "</p>\n";-->
+
+<!--echo "<p><input type='submit' value='Submit'></p>\n";-->
+
+<!--echo "-->
+<!--</form>";-->
+<!--}-->
+
+<!--else-->
+<!--{-->
+<!--$state = $_POST["state"];-->
+<!--$pet = filter_input(INPUT_POST, "pet");-->
+
+<!--if($state == "Texas")-->
+<!--{-->
+<!--$capital = "Austin";-->
+<!--$attraction = "a rodeo";-->
+<!--}-->
+
+<!--elseif($state == "Illinois")-->
+<!--{-->
+<!--$capital = "Springfield";-->
+<!--$attraction = "the Sears Tower";-->
+<!--}-->
+
+<!--elseif($state == "Arizona")-->
+<!--{-->
+<!--$capital = "Phoenix";-->
+<!--$attraction = "the Grand Canyon";-->
+<!--}-->
+
+<!--else-->
+<!--{-->
+<!--$capital = "(...you know, I'm not sure of the capital...)";-->
+<!--$attraction = "(...and I don't know what you might visit)";-->
+<!--}-->
+
+<!--switch($pet)-->
+<!--{-->
+<!--case "dog":-->
+<!--$activity = "And, get a new flea collar for your $pet!";-->
+<!--break;-->
+<!--case "cat":-->
+<!--$activity = "And buy some catnip for your $pet!";-->
+<!--break;-->
+<!--default:-->
+<!--$activity = "I don't know WHAT you can do in $state with a $pet in tow!";-->
+<!--break;-->
+<!--}-->
+
+<!--echo "-->
+<!--<h3>So, you're are going to visit $state. Great, while you're there be sure to-->
+<!--visit the capital $capital and see $attraction! $activity</h3>\n";-->
+
+<!--echo "-->
+<!--<h4>(I used an \"if statement\" and a \"switch statement\" to build the line-->
+<!--above.)</h4>\n";-->
+
+<!--echo "<p>\n";-->
+<!--echo "Now, let's repeat a sentence five (5) times using a \"for loop\":<br/>\n";-->
+<!--echo "<br/>";-->
+
+<!--for($i = 1; $i <= 5; $i++)-->
+<!--{-->
+<!--echo "This is repition #$i using a \"for loop\".<br/>\n";-->
+<!--}-->
+<!--echo "</p>\n";-->
+
+<!--$j = 1;-->
+
+<!--echo "<p>\n";-->
+<!--echo "Last, I'll repeat a sentence seven (7) times using a \"while-->
+<!--loop\":<br/>\n";-->
+<!--echo "<br/>";-->
+
+<!--while($j <= 7)-->
+<!--{-->
+<!--echo "This is repition #$j using a\"while loop\" (looks the same, huh!?).<br/>\n";-->
+<!--$j++;-->
+<!--}-->
+<!--echo "</p>\n";-->
+
+<!--echo "<p>\n";-->
+<!--echo "<h3>Thanks! Bye!</h3>\n";-->
+<!--echo "</p>\n";-->
+<!--}-->

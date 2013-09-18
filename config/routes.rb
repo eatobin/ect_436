@@ -1,5 +1,6 @@
 Ect436::Application.routes.draw do
-  get "three/hw3"
+  match('/hw99', {:to => 'three#example', :via => 'get'})
+
   root('one#home')
   match('/hw2', {:to => 'two#hw2', :via => 'get'})
   match('/hw2p2', {:to => 'two#hw2p2', :via => 'get'})

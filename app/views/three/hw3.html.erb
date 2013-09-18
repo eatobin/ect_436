@@ -1,16 +1,19 @@
-<% provide(:title, '3') %>
-<h1>I hear you're planning a little trip:</h1>
+<% unless params[:state] %>
+    <% provide(:title, '3') %>
 
-<% form_tag(hw3_path, {:method => "get"}) do %>
-    <h3><%= label_tag(:state, "Which state do you plan to visit?:") %></h3>
-    <%= select_tag(:state, options_for_select([['Texas', 'TX'],
-                                               ['Illinois', 'IL'],
-                                               ['Arizona', 'AZ'],
-                                               ['North Dakota', 'ND'],
-                                               ['South Dakota', 'SD']], 1)) %>
-    <br/>
-    <br/>
-    <%= submit_tag("Send It!") %>
+    <h1>I hear you're planning a little trip:</h1>
+
+    <%= form_tag(hw3_path, {:method => "get"}) do %>
+        <h3><%= label_tag(:state, "Which state do you plan to visit?:") %></h3>
+        <%= select_tag(:state, options_for_select([['Texas', 'TX'],
+                                                   ['Illinois', 'IL'],
+                                                   ['Arizona', 'AZ'],
+                                                   ['North Dakota', 'ND'],
+                                                   ['South Dakota', 'SD']], 1)) %>
+        <br/>
+        <br/>
+        <%= submit_tag("Send It!") %>
+    <% end %>
 <% end %>
 
 

@@ -16,16 +16,14 @@
     <% end %>
 <% end %>
 
+<% if params[:state] %>
+    <% provide(:title, '3 - 2') %>
+    <%= params[:state] %>
+<% end %>
 
 
 
 
-<!--if (!filter_has_var(INPUT_POST, "state"))-->
-<!--{-->
-<!--echo "-->
-<!--<form action='hw3.php' method='post'>\n";-->
-
-<!--echo "<p>\n";-->
 <!--echo "What kind of pet will you bring with you?:<br/>\n";-->
 <!--echo "<input type='radio' name='pet' value='dog' checked='checked'/> Dog<br/>\n";-->
 <!--echo "<input type='radio' name='pet' value='cat'/> Cat<br/>\n";-->

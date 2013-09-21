@@ -5,20 +5,38 @@
 
     <%= form_tag(hw3_path, {:method => "get"}) do %>
         <h3><%= label_tag(:state, "Which state do you plan to visit?:") %></h3>
-        <%= select_tag(:state, options_for_select([['Texas', 'TX'],
-                                                   ['Illinois', 'IL'],
-                                                   ['Arizona', 'AZ'],
-                                                   ['North Dakota', 'ND'],
-                                                   ['South Dakota', 'SD']], 1)) %>
-        <br/>
-        <br/>
+        <%= select_tag(:state, options_for_select([['Texas'],
+                                                   ['Illinois'],
+                                                   ['Arizona'],
+                                                   ['North Dakota'],
+                                                   ['South Dakota']], 1)) %>
+        <h3><%= label_tag(:pet, "What kind of pet will you bring with you?:") %></h3>
+        <%= radio_button_tag(:pet, 'dog', true) %> Dog <br>
+        <%= radio_button_tag(:pet, 'cat') %> Cat <br>
+        <%= radio_button_tag(:pet, 'horse') %> Horse <br>
+        <%= radio_button_tag(:pet, 'fox') %> Fox <br>
         <%= submit_tag("Send It!") %>
     <% end %>
 <% end %>
 
 <% if params[:state] %>
     <% provide(:title, '3 - 2') %>
-    <h1><%= params[:state] %></h1>
+
+    <% if params[:state] == 'Texas' %>
+        <% @capital = 'Austin' %>
+        <% @attraction = 'a rodeo' %>
+    <% end %>
+
+    <% case params[:pet] %>
+<% when 'dog' %>
+        <% @activity = "And, get a new flea collar for your #{params[:pet]}." %>
+    <% else %>
+        <% @activity = "Shoot" %>
+    <% end %>
+
+    <h1>So, you're going to visit <%= params[:state] %>.</h1>
+    <h3>Great, while you're there be sure to visit the capital <%= @capital %>
+      and see <%= @attraction %>! <%= @activity %></h3>
 <% end %>
 
 

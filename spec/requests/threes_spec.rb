@@ -6,7 +6,7 @@ describe "Homework 3" do
 
   shared_examples_for "all site pages" do
     it { should(have_title(full_title(page_title))) }
-    it { should(have_selector('h1', {:text => heading})) }
+    it { should(have_selector('h1', { :text => heading })) }
   end
 
   describe "HW3 'Home' Page" do
@@ -18,19 +18,22 @@ describe "Homework 3" do
     it_should_behave_like("all site pages")
     it { should(have_link('Return Home', href: root_path)) }
     it { should(have_field(:state)) }
+    it { should(have_field(:pet)) }
   end
 
   describe "HW3 Page '2'" do
     before do
       visit hw3_path
-      select('Texas', {:from => :state})
+      select('Arizona', { :from => :state })
+      choose('pet_horse')
       click_button("Send It!")
     end
 
     let(:page_title) { '3' }
-    let(:heading) { "TX" }
+    let(:heading) { "So, you're are going to visit Arizona." }
 
     it_should_behave_like("all site pages")
+
     #
     ## works!
     ## it "should have the title 'EAT ECT 436 | 2 - 2'" do

@@ -15,6 +15,7 @@
         <%= radio_button_tag(:pet, 'cat') %> Cat <br>
         <%= radio_button_tag(:pet, 'horse') %> Horse <br>
         <%= radio_button_tag(:pet, 'fox') %> Fox <br>
+        <br>
         <%= submit_tag("Send It!") %>
     <% end %>
 <% end %>
@@ -25,85 +26,37 @@
     <% if params[:state] == 'Texas' %>
         <% @capital = 'Austin' %>
         <% @attraction = 'a rodeo' %>
+    <% elsif params[:state] == 'Illinois' %>
+        <% @capital = 'Springfield' %>
+        <% @attraction = 'the Sears Tower' %>
+    <% elsif params[:state] == 'Arizona' %>
+        <% @capital = 'Phoenix' %>
+        <% @attraction = 'the Grand Canyon' %>
+    <% else %>
+        <% @capital = "(...you know, I'm not sure of the capital...)" %>
+        <% @attraction = "(...and I don't know what you might visit)" %>
     <% end %>
+
+
+
+
 
     <% case params[:pet] %>
 <% when 'dog' %>
         <% @activity = "And, get a new flea collar for your #{params[:pet]}." %>
+    <% when 'cat' %>
+        <% @activity = "And buy some catnip for your #{params[:pet]}." %>
     <% else %>
-        <% @activity = "Shoot" %>
+        <% @activity = "I don't know WHAT you can do in #{params[:state]} with a #{params[:pet]} in tow!" %>
     <% end %>
 
     <h1>So, you're going to visit <%= params[:state] %>.</h1>
     <h3>Great, while you're there be sure to visit the capital <%= @capital %>
       and see <%= @attraction %>! <%= @activity %></h3>
+    <h4>(I used an "if statement" and a "case statement" to build the line
+      above.)</h4>
 <% end %>
 
-
-
-
-<!--echo "What kind of pet will you bring with you?:<br/>\n";-->
-<!--echo "<input type='radio' name='pet' value='dog' checked='checked'/> Dog<br/>\n";-->
-<!--echo "<input type='radio' name='pet' value='cat'/> Cat<br/>\n";-->
-<!--echo "<input type='radio' name='pet' value='horse'/> Horse<br/>\n";-->
-<!--echo "<input type='radio' name='pet' value='fox'/> Fox<br/>\n";-->
-<!--echo "</p>\n";-->
-
-<!--echo "<p><input type='submit' value='Submit'></p>\n";-->
-
-<!--echo "-->
-<!--</form>";-->
-<!--}-->
-
-<!--else-->
-<!--{-->
-<!--$state = $_POST["state"];-->
-<!--$pet = filter_input(INPUT_POST, "pet");-->
-
-<!--if($state == "Texas")-->
-<!--{-->
-<!--$capital = "Austin";-->
-<!--$attraction = "a rodeo";-->
-<!--}-->
-
-<!--elseif($state == "Illinois")-->
-<!--{-->
-<!--$capital = "Springfield";-->
-<!--$attraction = "the Sears Tower";-->
-<!--}-->
-
-<!--elseif($state == "Arizona")-->
-<!--{-->
-<!--$capital = "Phoenix";-->
-<!--$attraction = "the Grand Canyon";-->
-<!--}-->
-
-<!--else-->
-<!--{-->
-<!--$capital = "(...you know, I'm not sure of the capital...)";-->
-<!--$attraction = "(...and I don't know what you might visit)";-->
-<!--}-->
-
-<!--switch($pet)-->
-<!--{-->
-<!--case "dog":-->
-<!--$activity = "And, get a new flea collar for your $pet!";-->
-<!--break;-->
-<!--case "cat":-->
-<!--$activity = "And buy some catnip for your $pet!";-->
-<!--break;-->
-<!--default:-->
-<!--$activity = "I don't know WHAT you can do in $state with a $pet in tow!";-->
-<!--break;-->
-<!--}-->
-
-<!--echo "-->
-<!--<h3>So, you're are going to visit $state. Great, while you're there be sure to-->
-<!--visit the capital $capital and see $attraction! $activity</h3>\n";-->
-
-<!--echo "-->
-<!--<h4>(I used an \"if statement\" and a \"switch statement\" to build the line-->
-<!--above.)</h4>\n";-->
 
 <!--echo "<p>\n";-->
 <!--echo "Now, let's repeat a sentence five (5) times using a \"for loop\":<br/>\n";-->

@@ -6,7 +6,7 @@ describe "Homework 3" do
 
   shared_examples_for "all site pages" do
     it { should(have_title(full_title(page_title))) }
-    it { should(have_selector('h1', { :text => heading })) }
+    it { should(have_selector('h1', {:text => heading})) }
   end
 
   describe "HW3 'Home' Page" do
@@ -24,7 +24,7 @@ describe "Homework 3" do
   describe "HW3 Page '2'" do
     before do
       visit hw3_path
-      select('Arizona', { :from => :state })
+      select('Arizona', {:from => :state})
       choose('pet_horse')
       click_button("Send It!")
     end

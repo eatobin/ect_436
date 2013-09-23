@@ -34,6 +34,9 @@ describe "Homework 3" do
 
     it_should_behave_like("all site pages")
     it { should(have_link('Return Home', href: root_path)) }
+    it { should(have_content("Great, while you're there be sure to visit the
+      capital Phoenix and see the Grand Canyon!")) }
+    it { should(have_content("I don't know WHAT you can do in Arizona with a horse in tow!")) }
     #
     ## works!
     ## it "should have the title 'EAT ECT 436 | 2 - 2'" do

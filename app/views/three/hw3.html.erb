@@ -22,38 +22,15 @@
 
 <% if params[:state] %>
     <% provide(:title, '3 - 2') %>
-
-    <% if params[:state] == 'Texas' %>
-        <% @capital = 'Austin' %>
-        <% @attraction = 'a rodeo' %>
-    <% elsif params[:state] == 'Illinois' %>
-        <% @capital = 'Springfield' %>
-        <% @attraction = 'the Sears Tower' %>
-    <% elsif params[:state] == 'Arizona' %>
-        <% @capital = 'Phoenix' %>
-        <% @attraction = 'the Grand Canyon' %>
-    <% else %>
-        <% @capital = "(...you know, I'm not sure of the capital...)" %>
-        <% @attraction = "(...and I don't know what you might visit)" %>
-    <% end %>
-
-
-
-
-
-    <% case params[:pet] %>
-<% when 'dog' %>
-        <% @activity = "And, get a new flea collar for your #{params[:pet]}." %>
-    <% when 'cat' %>
-        <% @activity = "And buy some catnip for your #{params[:pet]}." %>
-    <% else %>
-        <% @activity = "I don't know WHAT you can do in #{params[:state]} with a #{params[:pet]} in tow!" %>
-    <% end %>
+    <% provide(:p_state, params[:state]) %>
+    <% provide(:p_pet, params[:pet]) %>
 
     <h1>So, you're going to visit <%= params[:state] %>.</h1>
-    <h3>Great, while you're there be sure to visit the capital <%= @capital %>
-      and see <%= @attraction %>! <%= @activity %></h3>
-    <h4>(I used an "if statement" and a "case statement" to build the line
+    <h3>Great, while you're there be sure to visit the
+      capital <%= return_capital(yield(:p_state)) %>
+      and see <%= return_attraction(yield(:p_state)) %>!</h3>
+    <h3> <%= return_activity(yield(:p_pet)) %></h3>
+    <h4>(I used an "if statement" and a "case statement" to build the lines
       above.)</h4>
 <% end %>
 

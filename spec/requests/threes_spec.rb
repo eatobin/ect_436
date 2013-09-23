@@ -33,7 +33,7 @@ describe "Homework 3" do
     let(:heading) { "So, you're are going to visit Arizona." }
 
     it_should_behave_like("all site pages")
-
+    it { should(have_link('Return HomX', href: root_path)) }
     #
     ## works!
     ## it "should have the title 'EAT ECT 436 | 2 - 2'" do

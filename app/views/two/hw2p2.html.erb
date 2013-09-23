@@ -1,22 +1,23 @@
 <% provide(:title, '2 - 2') %>
+<% provide(:p_query, params[:query]) %>
 <h1>Here's the sentence you sent from the first page:</h1>
-<%= @forward_string = params[:query] %>
+<%= yield(:p_query) %>
 <h3>And here's the sentence changed to an array:</h3>
-<%= @forward_array = @forward_string.split(' ') %>
+<%= @fa = forward_array(yield(:p_query)) %>
 <h3>Or:</h3>
 <ul>
-  <% @forward_array.each_with_index do |text, index| %>
+  <% @fa.each_with_index do |text, index| %>
       <li><%= "[#{index}] => [#{text}]" %></li>
   <% end %>
 </ul>
 <h3>Now the array reversed:</h3>
-<%= @reversed_array = @forward_array.reverse %>
+<%= @ra = reversed_array(@fa) %>
 <h3>Or:</h3>
 <ul>
-  <% @reversed_array.each_with_index do |text, index| %>
+  <% @ra.each_with_index do |text, index| %>
       <li><%= "[#{index}] => [#{text}]" %></li>
   <% end %>
 </ul>
 <h3>And "glued" back together (reversed) using
-  your <%= @forward_array.count %> words and "*":</h3>
-<%= @reversed_array.join("*") %>
+  your <%= @ra.count %> words and "*":</h3>
+<%= @ra.join("*") %>

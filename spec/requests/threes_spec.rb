@@ -34,20 +34,11 @@ describe "Homework 3" do
 
     it_should_behave_like("all site pages")
     it { should(have_link('Return Home', href: root_path)) }
-    it { should(have_selector('h3', {:text => "Great, while you're there be sure to visit the capital Phoenix and see the Grand CanyoX!"})) }
-    # it { should(have_content("Great, while you're there be sure to visit the capital Phoenix and see the Grand Canyon!")) }
-    it { should(have_selector('h3', {:text => "I don't know WHAT you can do in Arizona with a horse in toX!"})) }
-    # it { should(have_content("I don't know WHAT you can do in Arizona with a horse in tow!")) }
-    #
-    ## works!
-    ## it "should have the title 'EAT ECT 436 | 2 - 2'" do
-    ##   expect(page).to have_selector('title', {:text => full_title('2 - 2'), :visible => false})
-    ## end
-    #
-    #it { should(have_link('Return Home', href: root_path)) }
-    #it { should(have_content('This is a test!')) }
-    #it { should(have_content('["This", "is", "a", "test!"]')) }
-    #it { should(have_content('["test!", "a", "is", "This"]')) }
-    #it { should(have_content('test!*a*is*This')) }
+    it { should(have_selector('h3', {:text => "Great, while you're there be sure to visit the capital Phoenix and see the Grand Canyon!"})) }
+    it { should(have_selector('h3', {:text => "I don't know WHAT you can do in Arizona with a horse in tow!"})) }
+    it { should(have_content("This is repetition 0 using '5.times' (notice starts at 0).")) }
+    it { should(have_content("This is repetition 4 using '5.times' (notice starts at 0).")) }
+    it { should(have_content("This is repetition 1 using '(1..7).each' (starts at 1, not 0!).")) }
+    it { should(have_content("This is repetition 7 using '(1..7).each' (starts at 1, not 0!).")) }
   end
 end

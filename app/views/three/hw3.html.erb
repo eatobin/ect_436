@@ -32,34 +32,14 @@
     <h3> <%= return_activity(yield(:p_pet)) %></h3>
     <h4>(I used an "if statement" and a "case statement" to build the lines
       above.)</h4>
+    <h4>Now, let's repeat a sentence five (5) times using '5.times':</h4>
+    <% 5.times do |x| %>
+        <%= "This is repetition #{x} using '5.times' (notice starts at 0)." %><br>
+    <% end %>
+    <h4>Last, I'll repeat a sentence seven (7) times using a '(1..7).each'
+      range:</h4>
+    <% (1..7).each do |x| %>
+        <%= "This is repetition #{x} using '(1..7).each' (starts at 1, not 0!)." %><br>
+    <% end %>
+    <h3>Thanks! Bye!</h3>
 <% end %>
-
-
-<!--echo "<p>\n";-->
-<!--echo "Now, let's repeat a sentence five (5) times using a \"for loop\":<br/>\n";-->
-<!--echo "<br/>";-->
-
-<!--for($i = 1; $i <= 5; $i++)-->
-<!--{-->
-<!--echo "This is repition #$i using a \"for loop\".<br/>\n";-->
-<!--}-->
-<!--echo "</p>\n";-->
-
-<!--$j = 1;-->
-
-<!--echo "<p>\n";-->
-<!--echo "Last, I'll repeat a sentence seven (7) times using a \"while-->
-<!--loop\":<br/>\n";-->
-<!--echo "<br/>";-->
-
-<!--while($j <= 7)-->
-<!--{-->
-<!--echo "This is repition #$j using a\"while loop\" (looks the same, huh!?).<br/>\n";-->
-<!--$j++;-->
-<!--}-->
-<!--echo "</p>\n";-->
-
-<!--echo "<p>\n";-->
-<!--echo "<h3>Thanks! Bye!</h3>\n";-->
-<!--echo "</p>\n";-->
-<!--}-->

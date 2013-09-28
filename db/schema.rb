@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20130924210454) do
   create_table "employees", force: true do |t|
     t.integer  "empno"
     t.string   "ename"
+    t.string   "job"
+    t.integer  "mgr"
+    t.date     "hiredate"
+    t.decimal  "sal"
+    t.decimal  "comm"
     t.integer  "deptno"
     t.datetime "created_at"
     t.datetime "updated_at"

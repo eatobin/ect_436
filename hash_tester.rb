@@ -8,7 +8,7 @@ def print_it
     h.attributes.each do |key, value|
       puts("#{key} - #{value}")
     end
-    puts('Next Record')
+    puts()
   end
 end
 

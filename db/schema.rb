@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20130924210454) do
     t.decimal  "sal"
     t.decimal  "comm"
     t.integer  "deptno"
+    t.integer  "department_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

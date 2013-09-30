@@ -15,7 +15,7 @@ end
 def print_it2
   my_array = Department.all
   my_array.each do |h|
-      puts("#{h.deptno} - #{h.dname}")
+      puts("#{h.deptno} - #{h.dname} - #{h.loc}")
   end
   puts()
 end
@@ -27,4 +27,12 @@ def make_dd
     dd << d.dname
   end
   p(dd)
+end
+
+def print_it3(deptno)
+  my_array = Employee.where({:deptno => deptno})
+  my_array.each do |h|
+      puts("#{h.ename} - #{h.job} - #{h.sal}")
+  end
+  puts()
 end

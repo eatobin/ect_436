@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Department do
-  describe "Department Wrapper" do
+
+  describe "Validate Departments" do
+
     it "should return ACCOUNTING as first dept" do
       Department.first.dname.should eq("ACCOUNTING")
     end
@@ -10,8 +12,8 @@ describe Department do
       Department.last.dname.should eq("OPERATIONS")
     end
 
-    it "should return SALES as dept => 3" do
-      Department.where({ :id => 3 }).first.dname.should eq("SALES")
+    it "should return SALES as dept :id => 3" do
+      Department.where({:id => 3}).first.dname.should eq("SALES")
     end
   end
 end

@@ -10,7 +10,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.decimal :comm
       t.integer :deptno
       t.integer :department_id
-      
+
       t.timestamps
     end
   end

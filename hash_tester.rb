@@ -15,7 +15,7 @@ end
 def print_it2
   my_array = Department.all
   my_array.each do |h|
-      puts("#{h.deptno} - #{h.dname} - #{h.loc}")
+    puts("#{h.deptno} - #{h.dname} - #{h.loc}")
   end
   puts()
 end
@@ -32,7 +32,7 @@ end
 def print_it3(deptno)
   my_array = Employee.where({:deptno => deptno})
   my_array.each do |h|
-      puts("#{h.ename} - #{h.job} - #{h.sal}")
+    puts("#{h.ename} - #{h.job} - #{h.sal}")
   end
   puts()
 end
@@ -48,6 +48,6 @@ def print_it5(dept_id)
   my_dept = Department.where({:id => dept_id}).first
   my_array = my_dept.employees
   my_array.each do |h|
-      puts("#{h.ename} - #{h.job} - #{h.sal}")
+    puts("#{h.ename} - #{h.job} - #{h.sal}")
   end
 end

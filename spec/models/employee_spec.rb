@@ -1,24 +1,19 @@
 require 'spec_helper'
 
 describe Employee do
-  it "should return TOBIN as first employee" do
-    Employee.first.ename.should eq("TOBIN")
-  end
 
-  it "should return TOBIN as last employee" do
-    Employee.last.ename.should eq("TOBIN")
-  end
+  describe "Validate Employees" do
 
-  it "should return TOBIN as employee => 9" do
-    Employee.where({ :id => 9 }).first.ename.should eq("TOBIN")
-  end
-end
+    it "should return KING as first employee" do
+      Employee.first.ename.should eq("KING")
+    end
 
-describe Employee2 do
+    it "should return MILLER as last employee" do
+      Employee.last.ename.should eq("MILLER")
+    end
 
-  describe "Employee2-2" do
-    it "should return TOBIN as first employee" do
-      expect(Employee.first.ename.should eq("TOBIN"))
+    it "should return WARD as employee :id => 9" do
+      Employee.where({:id => 9}).first.ename.should eq("WARD")
     end
   end
 end

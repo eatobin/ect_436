@@ -43,6 +43,10 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include Capybara::DSL
+
+    config.before(:suite) do
+      require "#{Rails.root}/db/seeds.rb"
+    end
   end
 end
 

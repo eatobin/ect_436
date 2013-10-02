@@ -39,6 +39,7 @@ end
 
 def print_it4(dept_id)
   my_dept = Department.where({:id => dept_id}).first
+  p(my_dept)
   p(my_dept.employees)
 end
 

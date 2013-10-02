@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'rake'
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
@@ -45,7 +46,11 @@ Spork.prefork do
     config.include Capybara::DSL
 
     config.before(:suite) do
-      require "#{Rails.root}/db/seeds.rb"
+      rake = Rake::Application.new
+      Rake.application = rake
+      rake.init
+      rake.load_rakefile
+      rake['db:migrate'].invoke
     end
   end
 end

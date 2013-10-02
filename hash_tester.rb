@@ -1,7 +1,3 @@
-# d1 = Department.create( {:deptno => 101, :dname => 'sales', :loc => 'tuc'} )
-
-# d2 = Department.create( {:deptno => 102, :dname => 'accounting', :loc => 'tuc'} )
-
 def print_it
   my_array = Department.all
   my_array.each do |h|
@@ -41,6 +37,7 @@ def print_it4(dept_id)
   my_dept = Department.where({:id => dept_id}).first
   p(my_dept)
   p(my_dept.employees)
+  my_dept.employees.length
 end
 
 def print_it5(dept_id)

@@ -17,23 +17,23 @@ ActiveRecord::Schema.define(version: 20130924210454) do
   enable_extension "plpgsql"
 
   create_table "departments", force: true do |t|
-    t.integer  "deptno"
-    t.string   "dname"
-    t.string   "loc"
+    t.integer "deptno"
+    t.string "dname"
+    t.string "loc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "employees", force: true do |t|
-    t.integer  "empno"
-    t.string   "ename"
-    t.string   "job"
-    t.integer  "mgr"
-    t.date     "hiredate"
-    t.decimal  "sal"
-    t.decimal  "comm"
-    t.integer  "deptno"
-    t.integer  "department_id"
+    t.integer "empno"
+    t.string "ename"
+    t.string "job"
+    t.integer "mgr"
+    t.date "hiredate"
+    t.decimal "sal"
+    t.decimal "comm"
+    t.integer "deptno"
+    t.integer "department_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

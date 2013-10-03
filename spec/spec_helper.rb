@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'spork'
-require 'rake'
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
@@ -44,23 +43,10 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include Capybara::DSL
-
-    # config.before(:suite) do
-    #   rake = Rake::Application.new
-    #   Rake.application = rake
-    #   rake.init
-    #   rake.load_rakefile
-    #   rake['db:migrate'].invoke
-    # end
   end
 end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
 
-  ENV["RAILS_ENV"] ||= 'test'
-  rake = Rake::Application.new
-  rake.init
-  rake.load_rakefile
-  rake['db:migrate'].invoke
 end

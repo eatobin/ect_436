@@ -27,12 +27,8 @@ describe Department do
 
     it "should validate MILLER as 1 of 3 ACCOUNTING employees" do
       emp_array = Department.where({:id => 1}).first.employees
-      emp_array.length.should eq(4)
-      #emp_array.any? { |e| e["ename"] == "WARD" }.should be_true
-
-
-      #@fathers.select {|f| f["age"] > 35 }
-      #emp_array.any? { |e| e["ename"] == "WARD" } #=> true
+      emp_array.length.should eq(3)
+      emp_array.any? { |e| e["ename"] == "MILLER" }.should be_true
     end
   end
 end

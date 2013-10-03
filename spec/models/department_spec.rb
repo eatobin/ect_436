@@ -4,31 +4,35 @@ describe Department do
 
   describe "Validate Departments" do
 
-    it "should return ACCOUNTING as first dept" do
+    it "should validate ACCOUNTING as first dept" do
       Department.first.dname.should eq("ACCOUNTING")
     end
 
-    it "should return OPERATIONS as last dept" do
+    it "should validate OPERATIONS as last dept" do
       Department.last.dname.should eq("OPERATIONS")
     end
 
-    it "should return SALES as dept :id => 3" do
+    it "should validate SALES as dept :id => 3" do
       Department.where({:id => 3}).first.dname.should eq("SALES")
     end
   end
 
   describe "Validate Department Employees" do
 
-    it "should return WARD as only SALES employee" do
+    it "should validate WARD as only SALES employee" do
       emp_array = Department.where({:id => 4}).first.employees
       emp_array.length.should eq(1)
       emp_array[0].ename.should eq("WARD")
     end
 
-    it "should return MILLER as 1 of 3 ACCOUNTING employees" do
+    it "should validate MILLER as 1 of 3 ACCOUNTING employees" do
       emp_array = Department.where({:id => 1}).first.employees
       emp_array.length.should eq(4)
-      #emp_array.contains
+      #emp_array.any? { |e| e["ename"] == "WARD" }.should be_true
+
+
+      #@fathers.select {|f| f["age"] > 35 }
+      #emp_array.any? { |e| e["ename"] == "WARD" } #=> true
     end
   end
 end

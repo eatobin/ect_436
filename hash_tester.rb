@@ -48,3 +48,9 @@ def print_it5(dept_id)
     puts("#{h.ename} - #{h.job} - #{h.sal}")
   end
 end
+
+def make_dd2
+  Department.all.sort_by { |d| d[:dname] }.each do |dd|
+    puts("#{dd.deptno} - #{dd.dname} - #{dd.loc}")
+  end
+end

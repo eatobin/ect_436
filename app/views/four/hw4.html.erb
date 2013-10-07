@@ -1,44 +1,30 @@
 <% provide(:title, '4') %>
 <h1>Ok... let's build a drop-down list.</h1>
-  And let's use the contents of this database<br/>
-  to populate the list (ORDER BY dname):<br/>
+<h3>And let's use the contents of our sample database<br/>
+  to populate the list (ORDER BY dname):</h3>
 
-<table border='1'>
+<table border='10'>
   <tr>
     <th>DEPTNO</th>
     <th>DNAME</th>
     <th>LOC</th>
   </tr>
 
-  <% Department.all.sort_by { |d| d[:dname] }.each do |dd| %>
-    <%= <tr> %>
-      <%= <td>dd.deptno</td> %>
-      <%= <td>dd.dname</td> %>
-      <%= <td>dd.loc</td> %>
-    <%= </tr> %>
+  <% @depts = Department.all.sort_by { |d| d[:dname] } %>
+  <% @depts.each do |dd| %>
+      <tr>
+        <td><%= dd.deptno %></td>
+        <td><%= dd.dname %></td>
+        <td><%= dd.loc %></td>
+      </tr>
   <% end %>
 </table>
 
-<!--echo "<h3>And here's the drop down list<br />\n";-->
-<!--echo "constructed from the table above:</h3>\n";-->
+<h3>And here's the drop down list<br/>
+  constructed from the table above:</h3>
 
-<!--echo "<form action='hw4p2.php' method='POST'>\n";-->
-
-<!--echo "<select name='deptno'>\n";-->
-
-<!--mysqli_data_seek($result, 0);-->
-
-<!--while($row = mysqli_fetch_assoc($result))-->
-<!--{-->
-<!--extract($row);-->
-<!--echo "<option value='$deptno'>$dname</option>\n";-->
-<!--}-->
-
-<!--echo "</select>";-->
-
-<!--echo "<input type='submit' value='Select Department'/>";-->
-
-<!--echo "</form>";-->
-
-<!--mysqli_close($cxn);-->
-<!--?>-->
+<%= form_tag(hw4p2_path, {:method => "get"}) do %>
+    <%= select_tag(:dname_dd, options_from_collection_for_select(@depts, :id, :dname, selected=1)) %><br/>
+    <br>
+    <%= submit_tag("Select Department") %>
+<% end %>

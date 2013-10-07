@@ -5,6 +5,7 @@ Ect436::Application.routes.draw do
   match('/hw2p2', {:to => 'two#hw2p2', :via => 'get'})
   match('/hw3', {:to => 'three#hw3', :via => 'get'})
   match('/hw4', {:to => 'four#hw4', :via => 'get'})
+  match('/hw4p2', {:to => 'four#hw4p2', :via => 'get'})
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

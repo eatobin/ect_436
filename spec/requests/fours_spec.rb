@@ -13,7 +13,7 @@ describe "Homework 4" do
     before { visit hw4_path }
 
     let(:page_title) { '4' }
-    let(:heading) { "Ok... let's build a drop-down list."}
+    let(:heading) { "Ok... let's build a drop-down list." }
 
     it_should_behave_like("all site pages")
     it { should(have_link('Return Home', href: root_path)) }

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Eric Tobin - ECT 436 - Assignment #4</title>
+  <title>Eric Tobin - ECT 436 - Assignment #4</title>
 </head>
 
 <body>
@@ -29,62 +29,104 @@
 	$sql = "SELECT empno, ename, deptno FROM emp WHERE deptno = '$value' ORDER BY ename";
 	
 	echo "<p>";
-	echo "<h3>Here's the data I received from the first page:</h3>\n";
-	
-	echo "The <strong>field</strong> name is: $field<br />\n";
-	echo "And it's <strong>value</strong> is: $value<br />\n";
-	echo "</p>";
+echo "<h3>Here's the data I received from the first page:</h3>\n";
 
-	$result = mysqli_query($cxn,$sqlAll) or die ("Couldn't execute query.");
-	
-	echo "<h3>Here's all the employees in the emp table:</h3>\n";
+echo "The <strong>field</strong> name is: $field<br/>\n";
+echo "And it's <strong>value</strong> is: $value<br/>\n";
+echo "</p>";
 
-	echo "<table border = '1'>\n";
-		echo "<tr>\n";
-			echo "<th>EMPNO</th>\n";
-			echo "<th>ENAME</th>\n";
-			echo "<th>DEPTNO</th>\n";
-		echo "</tr>\n";
-		
-	while($row = mysqli_fetch_assoc($result))
-	{
-		extract($row);
+$result = mysqli_query($cxn,$sqlAll) or die ("Couldn't execute query.");
 
-			echo "<tr>\n";
-				echo "<td>$empno</td>\n";
-				echo "<td>$ename</td>\n";
-				echo "<td>$deptno</td>\n";
-			echo "</tr>\n";
-		}
+echo "<h3>Here's all the employees in the emp table:</h3>\n";
 
-	echo "</table>\n";
-	
-	$result = mysqli_query($cxn,$sql) or die ("Couldn't execute query.");
-	
-	echo "<h3>Last, here's all the employees in $field $value:</h3>\n";
+echo "
+<table border='1'>\n";
+  echo "
+  <tr>\n";
+    echo "
+    <th>EMPNO</th>
+    \n";
+    echo "
+    <th>ENAME</th>
+    \n";
+    echo "
+    <th>DEPTNO</th>
+    \n";
+    echo "
+  </tr>
+  \n";
 
-	echo "<table border = '1'>\n";
-		echo "<tr>\n";
-			echo "<th>EMPNO</th>\n";
-			echo "<th>ENAME</th>\n";
-			echo "<th>DEPTNO</th>\n";
-		echo "</tr>\n";
-		
-	while($row = mysqli_fetch_assoc($result))
-	{
-		extract($row);
-		
-			echo "<tr>\n";
-				echo "<td>$empno</td>\n";
-				echo "<td>$ename</td>\n";
-				echo "<td>$deptno</td>\n";
-			echo "</tr>\n";
-		}
+  while($row = mysqli_fetch_assoc($result))
+  {
+  extract($row);
 
-	echo "</table>\n";
-	
-	mysqli_free_result($result);
-	
+  echo "
+  <tr>\n";
+    echo "
+    <td>$empno</td>
+    \n";
+    echo "
+    <td>$ename</td>
+    \n";
+    echo "
+    <td>$deptno</td>
+    \n";
+    echo "
+  </tr>
+  \n";
+  }
+
+  echo "
+</table>
+\n";
+
+$result = mysqli_query($cxn,$sql) or die ("Couldn't execute query.");
+
+echo "<h3>Last, here's all the employees in $field $value:</h3>\n";
+
+echo "
+<table border='1'>\n";
+  echo "
+  <tr>\n";
+    echo "
+    <th>EMPNO</th>
+    \n";
+    echo "
+    <th>ENAME</th>
+    \n";
+    echo "
+    <th>DEPTNO</th>
+    \n";
+    echo "
+  </tr>
+  \n";
+
+  while($row = mysqli_fetch_assoc($result))
+  {
+  extract($row);
+
+  echo "
+  <tr>\n";
+    echo "
+    <td>$empno</td>
+    \n";
+    echo "
+    <td>$ename</td>
+    \n";
+    echo "
+    <td>$deptno</td>
+    \n";
+    echo "
+  </tr>
+  \n";
+  }
+
+  echo "
+</table>
+\n";
+
+mysqli_free_result($result);
+
 ?>
 <h3>Bye!</h3>
 </body>

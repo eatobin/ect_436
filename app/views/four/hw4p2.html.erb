@@ -1,37 +1,10 @@
 <% provide(:title, '4 - 2') %>
-<% provide(:p_dname_dd, params[:dname_dd]) %>
-<h1>Here's the sentence you sent from the first page:</h1>
-<%= yield(:p_dname_dd) %>
-<?php
-	$field = key($_POST);
-	$value = $_POST[$field];
-	
-	// settings for local server
 
-/*	$host = "localhost";
-	$user = "root";
-	$passwd = "adv26479";
-	$dbname = "csc452";*/
-	
-	// settings for production server
-	
-	$host = "csc452.db.7578476.hostedresource.com";
-	$user = "csc452";
-	$passwd = "Adv26479!1956";
-	$dbname = "csc452";
+<h1>Here's the data I received from the first page:</h1>
 
-	// rest of program
+The <strong>field</strong> name is: <%= params[:dname_dd] %><br/>
+And it's <strong>value</strong> is: $value<br/>
 
-	$cxn = mysqli_connect($host,$user,$passwd,$dbname) or die ("Couldn't connect to csc452");
-	$sqlAll = "SELECT empno, ename, deptno FROM emp ORDER BY ename";
-	$sql = "SELECT empno, ename, deptno FROM emp WHERE deptno = '$value' ORDER BY ename";
-	
-	echo "<p>";
-echo "<h3>Here's the data I received from the first page:</h3>\n";
-
-echo "The <strong>field</strong> name is: $field<br/>\n";
-echo "And it's <strong>value</strong> is: $value<br/>\n";
-echo "</p>";
 
 $result = mysqli_query($cxn,$sqlAll) or die ("Couldn't execute query.");
 
@@ -123,7 +96,5 @@ echo "
 </table>
 \n";
 
-mysqli_free_result($result);
 
-?>
 <h3>Bye!</h3>

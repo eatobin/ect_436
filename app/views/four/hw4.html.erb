@@ -24,7 +24,6 @@
   constructed from the table above:</h3>
 
 <%= form_tag(hw4p2_path, {:method => "get"}) do %>
-    <%= select_tag(:dname_dd, options_from_collection_for_select(@depts, :id, :dname, selected=1)) %><br/>
-    <br>
+    <%= select_tag(:dname_dd, options_from_collection_for_select(@depts, :id, :dname, selected=1)) %>
     <%= submit_tag("Select Department") %>
 <% end %>

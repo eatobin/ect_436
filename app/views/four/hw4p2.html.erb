@@ -2,8 +2,9 @@
 
 <h1>Here's the data I received from the first page:</h1>
 
-The <strong>field</strong> name is: <%= params[:dname_dd] %><br/>
-And it's <strong>value</strong> is: $value<br/>
+<% @my_dept = Department.where({:id => params[:dname_dd]}).first %>
+The <strong>field</strong> name is: deptno<br/>
+And it's <strong>value</strong> is: <%= @my_dept.deptno %><br/>
 
 
 $result = mysqli_query($cxn,$sqlAll) or die ("Couldn't execute query.");

@@ -41,7 +41,6 @@ def print_it4(dept_id)
 end
 
 def print_it5(dept_id)
-  my_array = Array.new
   my_dept = Department.where({:id => dept_id}).first
   my_array = my_dept.employees
   my_array.each do |h|

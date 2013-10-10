@@ -1,7 +1,8 @@
 <% provide(:title, '2 - 2') %>
 <% provide(:p_query, params[:query]) %>
 <h1>Here's the sentence you sent from the first page:</h1>
-<%= yield(:p_query) %>
+<%#= yield(:p_query) %>
+<%= yield(params[:query]) %>
 <h3>And here's the sentence changed to an array:</h3>
 <%= @fa = forward_array(yield(:p_query)) %>
 <h3>Or:</h3>

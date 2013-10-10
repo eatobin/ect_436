@@ -1,9 +1,7 @@
-<html>
-<head>
-  <title>Eric Tobin - ECT 436 - Assignment #4</title>
-</head>
-
-<body>
+<% provide(:title, '4 - 2') %>
+<% provide(:p_dname_dd, params[:dname_dd]) %>
+<h1>Here's the sentence you sent from the first page:</h1>
+<%= yield(:p_dname_dd) %>
 <?php
 	$field = key($_POST);
 	$value = $_POST[$field];
@@ -129,5 +127,3 @@ mysqli_free_result($result);
 
 ?>
 <h3>Bye!</h3>
-</body>
-</html>

@@ -2,7 +2,7 @@
 
 <h1>Here's the data I received from the first page:</h1>
 
-<% @my_dept = Department.where({:id => params[:dname_dd]}).first %>
+<% @my_dept = Department.where({:deptno => params[:dname_dd]}).first %>
 The <strong>field</strong> name is: deptno<br/>
 And it's
 <strong>value</strong> is: <%= @my_dept.deptno %> (<%= @my_dept.dname %>)<br/>

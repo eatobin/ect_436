@@ -23,27 +23,19 @@ describe "Homework 4" do
     it { should(have_field(:dname_dd)) }
   end
 
-  describe "HW4 Page 4" do
+  describe "HW4 Page 2" do
     before do
       visit hw4_path
       select('SALES', {:from => :dname_dd})
       click_button("Select Department")
     end
-    #
-    #  let(:page_title) { '2 - 2' }
-    #  let(:heading) { "Here's the sentence you sent from the first page:" }
-    #
-    #  it_should_behave_like("all site pages")
-    #
-    #  # works!
-    #  # it "should have the title 'EAT ECT 436 | 2 - 2'" do
-    #  #   expect(page).to have_selector('title', {:text => full_title('2 - 2'), :visible => false})
-    #  # end
-    #
-    #  it { should(have_link('Return Home', href: root_path)) }
-    #  it { should(have_content('This is a test!')) }
-    #  it { should(have_content('["This", "is", "a", "test!"]')) }
-    #  it { should(have_content('["test!", "a", "is", "This"]')) }
-    #  it { should(have_content('test!*a*is*This')) }
+
+    let(:page_title) { '4 - 2' }
+    let(:heading) { "Here's the data I received from the first page:" }
+
+    it_should_behave_like("all site pages")
+    it { should(have_link('Return Home', href: root_path)) }
+    it { should(have_content("And it's value is: 30 (SALES)")) }
+    it { should(have_selector('td', {:text => '7876'})) }
   end
 end

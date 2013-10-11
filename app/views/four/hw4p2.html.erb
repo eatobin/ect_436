@@ -4,98 +4,39 @@
 
 <% @my_dept = Department.where({:id => params[:dname_dd]}).first %>
 The <strong>field</strong> name is: deptno<br/>
-And it's <strong>value</strong> is: <%= @my_dept.deptno %><br/>
+And it's
+<strong>value</strong> is: <%= @my_dept.deptno %> (<%= @my_dept.dname %>)<br/>
 
+<h3>First, here's all the employees in the emp table:</h3>
 
-$result = mysqli_query($cxn,$sqlAll) or die ("Couldn't execute query.");
-
-echo "<h3>Here's all the employees in the emp table:</h3>\n";
-
-echo "
-<table border='1'>\n";
-  echo "
-  <tr>\n";
-    echo "
+<table border='10'>
+  <tr>
     <th>EMPNO</th>
-    \n";
-    echo "
     <th>ENAME</th>
-    \n";
-    echo "
     <th>DEPTNO</th>
-    \n";
-    echo "
   </tr>
-  \n";
 
-  while($row = mysqli_fetch_assoc($result))
-  {
-  extract($row);
-
-  echo "
-  <tr>\n";
-    echo "
+  <tr>
     <td>$empno</td>
-    \n";
-    echo "
     <td>$ename</td>
-    \n";
-    echo "
     <td>$deptno</td>
-    \n";
-    echo "
   </tr>
-  \n";
-  }
-
-  echo "
 </table>
-\n";
 
-$result = mysqli_query($cxn,$sql) or die ("Couldn't execute query.");
+<h3>Last, here's all the employees in deptno <%= @my_dept.deptno %>:</h3>
 
-echo "<h3>Last, here's all the employees in $field $value:</h3>\n";
-
-echo "
-<table border='1'>\n";
-  echo "
-  <tr>\n";
-    echo "
+<table border='10'>
+  <tr>
     <th>EMPNO</th>
-    \n";
-    echo "
     <th>ENAME</th>
-    \n";
-    echo "
     <th>DEPTNO</th>
-    \n";
-    echo "
   </tr>
-  \n";
 
-  while($row = mysqli_fetch_assoc($result))
-  {
-  extract($row);
-
-  echo "
-  <tr>\n";
-    echo "
+  <tr>
     <td>$empno</td>
-    \n";
-    echo "
     <td>$ename</td>
-    \n";
-    echo "
     <td>$deptno</td>
-    \n";
-    echo "
   </tr>
-  \n";
-  }
-
-  echo "
 </table>
-\n";
-
 
 <h3>Bye!</h3>

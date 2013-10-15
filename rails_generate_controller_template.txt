@@ -1,1 +1,1 @@
-rails generate controller Four hw4 --no-test-framework
+rails generate controller Five hw5 hw5p2 --no-test-framework

@@ -1,5 +1,7 @@
 Ect436::Application.routes.draw do
 
+  get "five/hw5"
+  get "five/hw5p2"
   root('one#home')
   match('/hw2', {:to => 'two#hw2', :via => 'get'})
   match('/hw2p2', {:to => 'two#hw2p2', :via => 'get'})

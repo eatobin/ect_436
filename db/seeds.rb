@@ -31,12 +31,12 @@ connection.execute("INSERT INTO employees (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL
 (7934, 'MILLER', 'CLERK', 7782, '1982-01-22', '1300.00', '0.00', 10, 1, localtimestamp, localtimestamp);")
 
 connection.execute("INSERT INTO never_melts (PName, Descrip, Flavor, Scoops, Price, Stock, Image, CREATED_AT, UPDATED_AT) VALUES
-('Brown Derby', 'The best single scoop of chocolate ice cream in the world!', 'Chocolate', '1 Scoop', '1.50', 20, 'images/choc1.gif', localtimestamp, localtimestamp),
-('Fudge Slide', 'A double scoop of our super premium chocolate.', 'Chocolate', '2 Scoops', '3.75', 20, 'images/choc2.gif', localtimestamp, localtimestamp),
-('Chocozilla', 'Three softball-sized scoops of to-die-for chocolate.', 'Chocolate', '3 Scoops', '6.00', 20, 'images/choc3.gif', localtimestamp, localtimestamp),
-('Little Red', 'A single scoop of our patented Strawberry.', 'Strawberry', '1 Scoop', '1.25', 20, 'images/straw1.gif', localtimestamp, localtimestamp),
-('Berry Fields', 'Two scoops of Maine''s best berries.', 'Strawberry', '2 Scoops', '3.00', 20, 'images/straw2.gif', localtimestamp, localtimestamp),
-('Red Giant', 'Can you eat three scoops of the world''s best strawberry ice cream?', 'Strawberry', '3 Scoops', '5.25', 20, 'images/straw3.gif', localtimestamp, localtimestamp),
-('Plain Jane', 'Our simplest product. One scoop of Super Vanilla!', 'Vanilla', '1 Scoop', '0.99', 20, 'images/vanilla1.gif', localtimestamp, localtimestamp),
-('Moe Betta', 'Two scoops of Super Duper Vanilla.', 'Vanilla', '2 Scoops', '1.50', 20, 'images/vanilla2.gif', localtimestamp, localtimestamp),
-('Mt. Everest', 'Three huge scoops of Super Vanilla. Are you a Vanilla junkie?', 'Vanilla', '3 Scoops', '2.75', 20, 'images/vanilla3.gif', localtimestamp, localtimestamp);")
+('Brown Derby', 'The best single scoop of chocolate ice cream in the world!', 'Chocolate', '1 Scoop', '1.50', 20, 'choc1.gif', localtimestamp, localtimestamp),
+('Fudge Slide', 'A double scoop of our super premium chocolate.', 'Chocolate', '2 Scoops', '3.75', 20, 'choc2.gif', localtimestamp, localtimestamp),
+('Chocozilla', 'Three softball-sized scoops of to-die-for chocolate.', 'Chocolate', '3 Scoops', '6.00', 20, 'choc3.gif', localtimestamp, localtimestamp),
+('Little Red', 'A single scoop of our patented Strawberry.', 'Strawberry', '1 Scoop', '1.25', 20, 'straw1.gif', localtimestamp, localtimestamp),
+('Berry Fields', 'Two scoops of Maine''s best berries.', 'Strawberry', '2 Scoops', '3.00', 20, 'straw2.gif', localtimestamp, localtimestamp),
+('Red Giant', 'Can you eat three scoops of the world''s best strawberry ice cream?', 'Strawberry', '3 Scoops', '5.25', 20, 'straw3.gif', localtimestamp, localtimestamp),
+('Plain Jane', 'Our simplest product. One scoop of Super Vanilla!', 'Vanilla', '1 Scoop', '0.99', 20, 'vanilla1.gif', localtimestamp, localtimestamp),
+('Moe Betta', 'Two scoops of Super Duper Vanilla.', 'Vanilla', '2 Scoops', '1.50', 20, 'vanilla2.gif', localtimestamp, localtimestamp),
+('Mt. Everest', 'Three huge scoops of Super Vanilla. Are you a Vanilla junkie?', 'Vanilla', '3 Scoops', '2.75', 20, 'vanilla3.gif', localtimestamp, localtimestamp);")

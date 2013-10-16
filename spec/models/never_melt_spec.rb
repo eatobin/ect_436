@@ -12,7 +12,7 @@ describe NeverMelt do
       NeverMelt.last.pname.should eq("Mt. Everest")
     end
 
-    it "should return Little Red as employee :id => 4" do
+    it "should return Little Red as cone :id => 4" do
       NeverMelt.where({:id => 4}).first.pname.should eq("Little Red")
     end
   end

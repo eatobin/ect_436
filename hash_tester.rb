@@ -53,3 +53,11 @@ def make_dd2
     puts("#{dd.deptno} - #{dd.dname} - #{dd.loc}")
   end
 end
+
+def f_dd
+  NeverMelt.order(:flavor).distinct.pluck(:flavor)
+end
+
+def s_dd
+  NeverMelt.order(:scoops).distinct.pluck(:scoops)
+end

@@ -23,8 +23,8 @@ describe "Homework 5" do
   describe "HW5 Page 2" do
     before do
       visit hw5p2_path
-    #  fill_in(:query, {:with => 'This is a test!'})
-    #  click_button("Send It!")
+      #  fill_in(:query, {:with => 'This is a test!'})
+      #  click_button("Send It!")
     end
 
     let(:page_title) { '5 - 2' }

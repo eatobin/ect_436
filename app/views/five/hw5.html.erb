@@ -1,3 +1,10 @@
+<% @a = NeverMelt.order(:scoops).distinct.pluck(:scoops).unshift("Hi Karen") %>
+
+<%= form_tag(hw5p2_path, {:method => "get"}) do %>
+    <%= select_tag(:dname_dd, options_for_select(@a, selected= "Hi Karen")) %>
+    <%= submit_tag("Select Department") %>
+<% end %>
+
 <form action='' method='POST'>\n";
 
 if ($_POST["myButton"] == "Reset")

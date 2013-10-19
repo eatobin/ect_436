@@ -43,7 +43,7 @@ end
 def print_it5(dept_id)
   my_dept = Department.where({:id => dept_id}).first
   my_array = my_dept.employees
-  my_array.each do |h|
+  my_array.each do |h|f
     puts("#{h.ename} - #{h.job} - #{h.sal}")
   end
 end
@@ -59,5 +59,5 @@ def f_dd
 end
 
 def s_dd
-  NeverMelt.order(:scoops).distinct.pluck(:scoops)
+  NeverMelt.order(:scoops).distinct.pluck(:scoops).unshift("Hi Karen")
 end

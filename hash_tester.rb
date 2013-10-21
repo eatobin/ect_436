@@ -43,7 +43,8 @@ end
 def print_it5(dept_id)
   my_dept = Department.where({:id => dept_id}).first
   my_array = my_dept.employees
-  my_array.each do |h|f
+  my_array.each do |h|
+    f
     puts("#{h.ename} - #{h.job} - #{h.sal}")
   end
 end

@@ -1,9 +1,16 @@
-<% @a = NeverMelt.order(:scoops).distinct.pluck(:scoops).unshift("Hi Karen") %>
-
+<% @a = NeverMelt.order(:scoops).distinct.pluck(:scoops) %>
 <%= form_tag(hw5p2_path, {:method => "get"}) do %>
-    <%= select_tag(:dname_dd, options_for_select(@a, selected= "Hi Karen")) %>
+    <%= select_tag(:dname_dd, options_for_select(@a), prompt: "Select something") %>
     <%= submit_tag("Select Department") %>
+
+    <% @v = true %>
+    <% if @v %>
+        <%= select_tag(:dname_dd2, options_for_select(@a), prompt: "Select something more") %>
+        <%= submit_tag("Select Department 2") %>
+    <% end %>
 <% end %>
+
+
 
 <form action='' method='POST'>\n";
 

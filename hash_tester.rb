@@ -60,5 +60,5 @@ def f_dd
 end
 
 def s_dd
-  NeverMelt.order(:scoops).distinct.pluck(:scoops).unshift("Hi Karen")
+  NeverMelt.order(:scoops).distinct.pluck(:scoops)
 end

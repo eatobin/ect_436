@@ -13,7 +13,8 @@ module FiveHelper
 
   def first?
     (params[:narrow_dd].nil? or params[:narrow_dd].empty?) and
-        (!params[:scoops_dd].present? and !params[:flavors_dd].present?)
+        (!params[:scoops_dd].present? and !params[:flavors_dd].present?) and
+        (!params[:scoops2_dd].present? and !params[:flavors2_dd].present?)
   end
 
   def second?
@@ -23,5 +24,10 @@ module FiveHelper
   def third?
     (params[:scoops_dd].present? and params[:scoops_btn] == "Submit") or
         (params[:flavors_dd].present? and params[:flavors_btn] == "Submit")
+  end
+
+  def fourth?
+    (params[:scoops2_dd].present? and params[:scoops2_btn] == "Submit") or
+        (params[:flavors2_dd].present? and params[:flavors2_btn] == "Submit")
   end
 end

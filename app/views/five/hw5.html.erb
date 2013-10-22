@@ -7,6 +7,9 @@
 </head>
 <% provide(:title, '5') %>
 <% @path = hw5_path %>
+<% if params[:path].present? %>
+    <% @path = params[:path] %>
+<% end %>
 <h1>Choose An Ice Cream Cone (use the DDL if you'd like):</h1>
 <%= form_tag(@path, {:method => "get"}) do %>
 
@@ -22,6 +25,10 @@
         <%= "Third!!" %>
     <% end %>
 
+    <% if fourth? %>
+        <%= "Fourth!!" %>
+    <% end %>
+
 
     <% if first? %>
         <%= select_tag(:narrow_dd, "<option>Scoops</option><option>Flavors</option>", prompt: "Narrow By:") %>
@@ -31,10 +38,12 @@
         <span class="red"><%= params[:narrow_dd] %></span>
         <% if params[:narrow_dd] == "Scoops" %>
             <%= select_tag(:scoops_dd, options_for_select(scoops), prompt: "How Many?") %>
+            <%= hidden_field_tag :path, hw5p2_path %>
             <%= submit_tag "Submit", {:name => "scoops_btn"} %>
         <% end %>
         <% if params[:narrow_dd] == "Flavors" %>
             <%= select_tag(:flavors_dd, options_for_select(flavors), prompt: "Which One?") %>
+            <%= hidden_field_tag :path, hw5p2_path %>
             <%= submit_tag "Submit", {:name => "flavors_btn"} %>
         <% end %>
 
@@ -43,13 +52,18 @@
         <% if params[:scoops_btn] == "Submit" %>
             <span class="red"><%= params[:scoops_dd] %></span>
             <%= select_tag(:flavors2_dd, options_for_select(flavors), prompt: "Which Flavor?") %>
+            <%= hidden_field_tag :scoops_dd, params[:scoops_dd] %>
             <%= submit_tag "Submit", {:name => "flavors2_btn]"} %>
         <% end %>
         <% if params[:flavors_btn] == "Submit" %>
             <span class="red"><%= params[:flavors_dd] %></span>
             <%= select_tag(:scoops2_dd, options_for_select(scoops), prompt: "Scoops?") %>
+            <%= hidden_field_tag :flavors_dd, params[:flavors_dd] %>
             <%= submit_tag "Submit", {:name => "scoops2_btn]"} %>
         <% end %>
     <% end %>
-    <%#= submit_tag "Reset", {:name => "reset_btn]"} %>
+    <% if fourth? %>
+        <span class="red">Thanks! Bye!</span>
+    <% end %>
+    <%= submit_tag "Reset", {:name => "reset_btn]"} %>
 <% end %>

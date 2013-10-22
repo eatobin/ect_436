@@ -1,22 +1,22 @@
 module ThreeHelper
-  def return_capital(p_state)
-    if p_state == 'Texas'
+  def return_capital
+    if params[:state] == 'Texas'
       'Austin'
-    elsif p_state == 'Illinois'
+    elsif params[:state] == 'Illinois'
       'Springfield'
-    elsif p_state == 'Arizona'
+    elsif params[:state] == 'Arizona'
       'Phoenix'
     else
       "(...you know, I'm not sure of the capital...)"
     end
   end
 
-  def return_attraction(p_state)
-    if p_state == 'Texas'
+  def return_attraction
+    if params[:state] == 'Texas'
       'a rodeo'
-    elsif p_state == 'Illinois'
+    elsif params[:state] == 'Illinois'
       'the Sears Tower'
-    elsif p_state == 'Arizona'
+    elsif params[:state] == 'Arizona'
       'the Grand Canyon'
     else
       "(...and I don't know what you might visit)"

@@ -23,13 +23,13 @@
 <% if params[:state] %>
     <% provide(:title, '3 - 2') %>
     <%# provide(:p_state, params[:state]) %>
-    <% provide(:p_pet, params[:pet]) %>
+    <%# provide(:p_pet, params[:pet]) %>
 
     <h1>So, you're going to visit <%= params[:state] %>.</h1>
     <h3>Great, while you're there be sure to visit the
-      capital <%= return_capital(yield(:p_state)) %>
-      and see <%= return_attraction(yield(:p_state)) %>!</h3>
-    <h3> <%= return_activity(yield(:p_pet)) %></h3>
+      capital <%= return_capital %>
+      and see <%= return_attraction %>!</h3>
+    <h3> <%= return_activity %></h3>
     <h4>(I used an "if statement" and a "case statement" to build the lines
       above.)</h4>
     <h4>Now, let's repeat a sentence five (5) times using '5.times':</h4>

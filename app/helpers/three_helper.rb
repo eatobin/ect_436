@@ -23,14 +23,14 @@ module ThreeHelper
     end
   end
 
-  def return_activity(p_pet)
-    case p_pet
+  def return_activity
+    case params[:pet]
       when 'dog'
-        "And, get a new flea collar for your #{p_pet}."
+        "And, get a new flea collar for your #{params[:pet]}."
       when 'cat'
-        "And buy some catnip for your #{p_pet}."
+        "And buy some catnip for your #{params[:pet]}."
       else
-        "I don't know WHAT you can do in #{params[:state]} with a #{p_pet} in tow!"
+        "I don't know WHAT you can do in #{params[:state]} with a #{params[:pet]} in tow!"
     end
   end
 end

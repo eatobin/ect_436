@@ -7,14 +7,33 @@ module FiveHelper
     NeverMelt.order(:flavor).distinct.pluck(:flavor)
   end
 
-  def all
-    NeverMelt.order(:id).distinct.pluck(:pname, :price)
+  def all_cones
+    NeverMelt.all
+  end
+
+  def cones_by_scoop(scoops)
+    NeverMelt.where({:scoops => scoops})
+  end
+
+  def cones_by_flavor(flavor)
+    NeverMelt.where({:flavor => flavor})
+  end
+
+  def cones_by_scoops_then_flavor(scoops, flavor)
+    NeverMelt.where({:scoops => scoops, :flavor => flavor})
+  end
+
+  def cones_by_flavor_then_scoops(flavor, scoops)
+    NeverMelt.where({:flavor => flavor, :scoops => scoops})
   end
 
   def first?
-    (params[:narrow_dd].nil? or params[:narrow_dd].empty?) and
+    ((params[:narrow_dd].nil? or params[:narrow_dd].empty?) and
         (!params[:scoops_dd].present? and !params[:flavors_dd].present?) and
-        (!params[:scoops2_dd].present? and !params[:flavors2_dd].present?)
+        (!params[:scoops2_dd].present? and !params[:flavors2_dd].present?)) or
+        (params[:flavors2_btn] == "Submit" and !params[:flavors2_dd].present?) or
+        (params[:scoops2_btn] == "Submit" and !params[:scoops2_dd].present?) or
+        params[:reset_btn] == "Reset"
   end
 
   def second?
@@ -29,5 +48,19 @@ module FiveHelper
   def fourth?
     (params[:scoops2_dd].present? and params[:scoops2_btn] == "Submit") or
         (params[:flavors2_dd].present? and params[:flavors2_btn] == "Submit")
+  end
+
+  def which_type
+    if third? and params[:scoops_dd].present?
+      cones_by_scoop(params[:scoops_dd])
+    elsif third? and params[:flavors_dd].present?
+      cones_by_flavor(params[:flavors_dd])
+    elsif fourth? and params[:scoops2_dd].present?
+      cones_by_scoops_then_flavor(params[:scoops2_dd], params[:flavors_dd])
+    elsif fourth? and params[:flavors2_dd].present?
+      cones_by_flavor_then_scoops(params[:flavors2_dd], params[:scoops_dd])
+    else
+      all_cones
+    end
   end
 end

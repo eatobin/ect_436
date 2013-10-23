@@ -1,10 +1,5 @@
 <% provide(:title, '5 - 2') %>
-<% @holder = 9 %>
-<%# if params[:dname_dd].empty? %>
-<%# @holder = 1 %>
-<%# end %>
-
-<% @my_cone = NeverMelt.where({:id => @holder}).first %>
+<% @my_cone = NeverMelt.where({:id => params[:pid]}).first %>
 <h1>Here are the details for your product:</h1>
 <li><%= "Product Name: #{@my_cone.pname}" %></li>
 <li><%= "Description: #{@my_cone.descrip}" %></li>

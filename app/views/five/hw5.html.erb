@@ -6,30 +6,8 @@
   </style>
 </head>
 <% provide(:title, '5') %>
-<% @path = hw5_path %>
-<% if params[:path].present? %>
-    <% @path = params[:path] %>
-<% end %>
 <h1>Choose An Ice Cream Cone (use the DDL if you'd like):</h1>
-<%= form_tag(@path, {:method => "get"}) do %>
-
-    <% if first? %>
-        <%= "First!!" %>
-    <% end %>
-
-    <% if second? %>
-        <%= "Second!!" %>
-    <% end %>
-
-    <% if third? %>
-        <%= "Third!!" %>
-    <% end %>
-
-    <% if fourth? %>
-        <%= "Fourth!!" %>
-    <% end %>
-
-
+<%= form_tag(hw5_path, {:method => "get"}) do %>
     <% if first? %>
         <%= select_tag(:narrow_dd, "<option>Scoops</option><option>Flavors</option>", prompt: "Narrow By:") %>
         <%= submit_tag "Submit", {:name => "narrow_btn]"} %>
@@ -38,12 +16,10 @@
         <span class="red"><%= params[:narrow_dd] %></span>
         <% if params[:narrow_dd] == "Scoops" %>
             <%= select_tag(:scoops_dd, options_for_select(scoops), prompt: "How Many?") %>
-            <%= hidden_field_tag :path, hw5p2_path %>
             <%= submit_tag "Submit", {:name => "scoops_btn"} %>
         <% end %>
         <% if params[:narrow_dd] == "Flavors" %>
             <%= select_tag(:flavors_dd, options_for_select(flavors), prompt: "Which One?") %>
-            <%= hidden_field_tag :path, hw5p2_path %>
             <%= submit_tag "Submit", {:name => "flavors_btn"} %>
         <% end %>
 
@@ -63,7 +39,21 @@
         <% end %>
     <% end %>
     <% if fourth? %>
-        <span class="red">Thanks! Bye!</span>
+        <h3><span class="red">Ok... this is it! Only one choice!</span></h3>
     <% end %>
     <%= submit_tag "Reset", {:name => "reset_btn]"} %>
+    <h3> Please make a selection<br/>
+      from our menu!</h3>
+    <table border='10'>
+      <tr>
+        <th>Picture<br>(Select)</th>
+        <th>Price</th>
+      </tr>
+      <% which_type.each do |dd| %>
+          <tr>
+            <td><%= link_to((image_tag "#{dd.image}"), hw5p2_path(pid: dd.id)) %></td>
+            <td><%= number_to_currency(dd.price) %></td>
+          </tr>
+      <% end %>
+    </table>
 <% end %>

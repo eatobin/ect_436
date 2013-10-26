@@ -46,12 +46,14 @@
       from our menu!</h3>
     <table border='10'>
       <tr>
-        <th>Picture<br>(Select)</th>
+        <th>Image<br><span class="red">(Clickable)</span></th>
+        <th>Name<br><span class="red">(Clickable)</span></th>
         <th>Price</th>
       </tr>
       <% which_type.each do |dd| %>
           <tr>
             <td><%= link_to((image_tag "#{dd.image}", size: "50"), hw5p2_path(pid: dd.id)) %></td>
+            <td><%= link_to("#{dd.pname}", hw5p2_path(pid: dd.id)) %></td>
             <td><%= number_to_currency(dd.price) %></td>
           </tr>
       <% end %>

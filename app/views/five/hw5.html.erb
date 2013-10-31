@@ -3,6 +3,16 @@
       span.red {
           color: red;
       }
+
+      span.small_red {
+          font-size: 80%;
+          color: red;
+      }
+
+      td {
+          text-align: center;
+          padding: 15px;
+      }
   </style>
 </head>
 <% provide(:title, '5') %>
@@ -46,8 +56,8 @@
       from our menu!</h3>
     <table border='10'>
       <tr>
-        <th>Image<br><span class="red">(Clickable)</span></th>
-        <th>Name<br><span class="red">(Clickable)</span></th>
+        <th>Image<br><span class="small_red">(clickable)</span></th>
+        <th>Name<br><span class="small_red">(clickable)</span></th>
         <th>Price</th>
       </tr>
       <% which_type.each do |dd| %>

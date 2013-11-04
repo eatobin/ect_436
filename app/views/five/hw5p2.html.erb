@@ -1,5 +1,5 @@
 <% provide(:title, '5 - 2') %>
-<% @my_cone = NeverMelt.where({:id => params[:pid]}).first %>
+<% @my_cone = Cone.where({:id => params[:pid]}).first %>
 <h1>Here are the details for your product:</h1>
 <li><%= "Product Name: #{@my_cone.pname}" %></li>
 <li><%= "Description: #{@my_cone.descrip}" %></li>

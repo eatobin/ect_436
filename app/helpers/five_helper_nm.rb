@@ -1,30 +1,30 @@
-module FiveHelper
+module FiveHelperNm
   def scoops
-    Cone.order(:scoops).distinct.pluck(:scoops)
+    NeverMelt.order(:scoops).distinct.pluck(:scoops)
   end
 
   def flavors
-    Cone.order(:flavor).distinct.pluck(:flavor)
+    NeverMelt.order(:flavor).distinct.pluck(:flavor)
   end
 
   def all_cones
-    Cone.all
+    NeverMelt.all
   end
 
   def cones_by_scoop(scoops)
-    Cone.where({:scoops => scoops})
+    NeverMelt.where({:scoops => scoops})
   end
 
   def cones_by_flavor(flavor)
-    Cone.where({:flavor => flavor})
+    NeverMelt.where({:flavor => flavor})
   end
 
   def cones_by_scoops_then_flavor(scoops, flavor)
-    Cone.where({:scoops => scoops, :flavor => flavor})
+    NeverMelt.where({:scoops => scoops, :flavor => flavor})
   end
 
   def cones_by_flavor_then_scoops(flavor, scoops)
-    Cone.where({:flavor => flavor, :scoops => scoops})
+    NeverMelt.where({:flavor => flavor, :scoops => scoops})
   end
 
   def first?

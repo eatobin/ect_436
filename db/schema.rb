@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131015183809) do
+ActiveRecord::Schema.define(version: 20130924210454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,18 +34,6 @@ ActiveRecord::Schema.define(version: 20131015183809) do
     t.decimal "comm"
     t.integer "deptno"
     t.integer "department_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "never_melts", force: true do |t|
-    t.string "pname"
-    t.string "descrip"
-    t.string "flavor"
-    t.string "scoops"
-    t.decimal "price"
-    t.integer "stock"
-    t.string "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

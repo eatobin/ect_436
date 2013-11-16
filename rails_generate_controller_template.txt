@@ -1,3 +1,4 @@
 rails generate controller Five hw5 hw5p2 --no-test-framework
 rails generate integration_test five
 http://ectweb2.cs.depaul.edu/etobin2/ECT583HW3/default.aspx
+rails generate controller Final nevermelt proddetail --no-test-framework

@@ -72,33 +72,30 @@
   <tr>
     <td>
       <h4 align="center"> Quantity in stock:&nbsp;
-        <span class="red">$stock</span>
+        <span class="red"><%= @my_cone.stock %></span>
       </h4>
     </td>
   </tr>
   <tr>
     <td><h4 align="center">How many would you like?:</h4>
 
-      <form action='buyDone.php' method='GET'>
-        <div align="center"><%= image_tag "buy.gif" %>
-          <br/>
-          <br/>
-          <select name='quant'>
-            <option value='1' selected='selected'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-          </select>
-          <input type='hidden' name='pid' value='$pid'/>
-          <input type='hidden' name='stock' value='$stock'/>
+      <%= form_tag(hw5p2_path, {:method => "get"}) do %>
 
-          <input type='submit' name='myButton' value='Purchase'/>
-          &nbsp;
-          <input type='submit' name='myButton' value='Back To Treats'/>
-        </div>
-      </form>
+          <div align="center"><%= image_tag "buy.gif" %>
+            <br/>
+            <br/>
+            <% @choices = %w{ 1 2 3 4 5 6 7 } %>
+            <%= select_tag(:quant_dd, options_for_select(@choices, '1')) %>
+
+            <%= hidden_field_tag :pid, @my_cone.id %>
+            <%= hidden_field_tag :stock, @my_cone.stock %>
+
+            <%= submit_tag("Purchase") %>
+            <%= submit_tag("Back To Treats") %>
+
+          </div>
+
+      <% end %>
     </td>
   </tr>
   <tr>

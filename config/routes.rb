@@ -10,6 +10,8 @@ Ect436::Application.routes.draw do
   match('/hw5p2', {:to => 'five#hw5p2', :via => 'get'})
   match('/nevermelt', {:to => 'final#nevermelt', :via => 'get'})
   match('/proddetail', {:to => 'final#proddetail', :via => 'get'})
+  match('/buydone', {:to => 'final#buydone', :via => 'get'})
+  match('/badquant', {:to => 'final#badquant', :via => 'get'})
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -12,7 +12,7 @@
 </head>
 <% provide(:title, 'ProdDetail') %>
 <% @my_cone = Cone.where({:id => params[:pid]}).first %>
-<table border="1" bordercolor="#ffffff" align="center" cellpadding="10" cellspacing="0"
+<table border="1" align="center" cellpadding="10" cellspacing="0"
        style="background-color:#B3E7FF; width: 960px; height: 300px;">
   <tr>
     <td>
@@ -22,7 +22,7 @@
   <tr>
     <td>
       <div align="center">
-        <table width="960" border="0" bordercolor="#ffffff" align="center" cellpadding="5" cellspacing="0">
+        <table width="960" border="0" align="center" cellpadding="5" cellspacing="0">
           <tr>
             <th>
               <div align="center"></div>
@@ -79,7 +79,7 @@
   <tr>
     <td><h4 align="center">How many would you like?:</h4>
 
-      <%= form_tag(hw5p2_path, {:method => "get"}) do %>
+      <%= form_tag(buydone_path, {:method => "get"}) do %>
 
           <div align="center"><%= image_tag "buy.gif" %>
             <br/>

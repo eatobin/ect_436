@@ -123,8 +123,8 @@
             </tr>
             <% which_type.each do |dd| %>
                 <tr>
-                  <td><%= link_to((image_tag "#{dd.image}", size: "50"), hw5p2_path(pid: dd.id)) %></td>
-                  <td><%= link_to("#{dd.pname}", hw5p2_path(pid: dd.id)) %></td>
+                  <td><%= link_to((image_tag "#{dd.image}", size: "50"), proddetail_path(pid: dd.id)) %></td>
+                  <td><%= link_to("#{dd.pname}", proddetail_path(pid: dd.id)) %></td>
                   <td><%= number_to_currency(dd.price) %></td>
                 </tr>
             <% end %>

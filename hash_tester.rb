@@ -68,7 +68,7 @@ def all_cones
 end
 
 def all_cones1
-    Cone.order(:id)
+    Cone.all.order(:pname)
 end
 
 def do_it

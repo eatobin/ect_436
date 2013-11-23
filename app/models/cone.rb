@@ -1,3 +1,3 @@
 class Cone < ActiveRecord::Base
-  order(:id, :desc)
+  default_scope { order(:id => :asc) }
 end

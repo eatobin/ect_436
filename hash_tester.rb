@@ -56,9 +56,29 @@ def make_dd2
 end
 
 def f_dd
-  NeverMelt.order(:flavor).distinct.pluck(:flavor)
+  Cone.order(:flavor).distinct.pluck(:flavor)
 end
 
 def s_dd
-  NeverMelt.order(:scoops).distinct.pluck(:scoops)
+  Cone.order(:scoops).distinct.pluck(:scoops)
+end
+
+def all_cones
+    Cone.all
+end
+
+def all_cones1
+    Cone.order(:id)
+end
+
+def do_it
+  all_cones1.each do |dd|
+    puts("#{dd.id} - #{dd.pname}")
+  end
+end
+
+def do_it2
+  all_cones.each do |dd|
+    puts("#{dd.id} - #{dd.pname}")
+  end
 end

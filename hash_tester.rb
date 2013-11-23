@@ -64,11 +64,11 @@ def s_dd
 end
 
 def all_cones
-    Cone.all
+  Cone.all
 end
 
 def all_cones1
-    Cone.all.order(:pname)
+  Cone.all.order(:pname)
 end
 
 def do_it

@@ -31,7 +31,7 @@ connection.execute("INSERT INTO employees (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL
 (7934, 'MILLER', 'CLERK', 7782, '1982-01-22', '1300.00', '0.00', 10, 1, localtimestamp, localtimestamp);")
 
 connection.execute("INSERT INTO cones (PName, Descrip, Flavor, Scoops, Price, Stock, Image, CREATED_AT, UPDATED_AT) VALUES
-('Brown Derby', 'The best single scoop of chocolate ice cream in the world!', 'Chocolate', '1 Scoop', '1.50', 20, 'choc1.gif', localtimestamp, localtimestamp),
+('Brown Derby', 'The best single scoop of chocolate ice cream in the world!', 'Chocolate', '1 Scoop', '1.50', 2, 'choc1.gif', localtimestamp, localtimestamp),
 ('Fudge Slide', 'A double scoop of our super premium chocolate.', 'Chocolate', '2 Scoops', '3.75', 20, 'choc2.gif', localtimestamp, localtimestamp),
 ('Chocozilla', 'Three softball-sized scoops of to-die-for chocolate.', 'Chocolate', '3 Scoops', '6.00', 20, 'choc3.gif', localtimestamp, localtimestamp),
 ('Little Red', 'A single scoop of our patented Strawberry.', 'Strawberry', '1 Scoop', '1.25', 20, 'straw1.gif', localtimestamp, localtimestamp),

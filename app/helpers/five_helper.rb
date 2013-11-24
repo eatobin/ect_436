@@ -1,10 +1,10 @@
 module FiveHelper
   def scoops
-    Cone.order(:scoops).distinct.pluck(:scoops)
+    Cone.unscoped.order(:scoops).distinct.pluck(:scoops)
   end
 
   def flavors
-    Cone.order(:flavor).distinct.pluck(:flavor)
+    Cone.unscoped.order(:flavor).distinct.pluck(:flavor)
   end
 
   def all_cones

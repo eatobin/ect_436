@@ -10,21 +10,14 @@
       }
   </style>
 </head>
-<% provide(:title, 'ProdDetail') %>
+<% provide(:title, 'BuyDone') %>
 <% @my_cone = Cone.where({:id => params[:pid]}).first %>
 
-
-<html>
-<head>
-  <title>New NeverMelt Product Quantities</title>
-  <link rel="shortcut icon" href="images/favicon.ico"/>
-</head>
-<body>
 <table border="1" bordercolor="#ffffff" align="center" cellpadding="10" cellspacing="0"
        style="background-color:#B3E7FF; width: 960px; height: 300px;">
 <tr>
   <td>
-    <div align="center"><img src="images/main-banner.gif"></div>
+    <div align="center"><%= image_tag("main-banner.gif") %></div>
   </td>
 </tr>
 <tr>
@@ -330,7 +323,7 @@
 </tr>
 <tr>
   <td>
-    <div align="center"><img src="images/bottom-banner.gif"></div>
+    <div align="center"><%= image_tag "bottom-banner.gif" %></div>
   </td>
 </tr>
 </table>

@@ -55,6 +55,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.1)
     ffi (1.9.0)
+    ffi (1.9.0-x86-mingw32)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -73,7 +74,10 @@ GEM
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    nokogiri (1.6.0-x86-mingw32)
+      mini_portile (~> 0.5.0)
     pg (0.16.0)
+    pg (0.16.0-x86-mingw32)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -153,6 +157,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   capybara

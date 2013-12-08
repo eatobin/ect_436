@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'execjs'
 gem 'pg'
+gem 'i18n', '>= 0.6.9'
 
 group :doc do
   gem 'sdoc', require: false

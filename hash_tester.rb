@@ -1,3 +1,5 @@
+# load('hash_tester.rb')
+
 def print_it
   my_array = Department.all
   my_array.each do |h|
@@ -68,7 +70,7 @@ def all_cones
 end
 
 def all_cones1
-  Cone.all.order(:pname)
+  Cone.all.unscoped
 end
 
 def do_it
@@ -81,4 +83,8 @@ def do_it2
   all_cones.each do |dd|
     puts("#{dd.id} - #{dd.pname}")
   end
+end
+
+def all_cones3
+  all_cones.order(:id)
 end

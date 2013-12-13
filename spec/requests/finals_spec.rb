@@ -21,9 +21,9 @@ describe "Homework Final" do
     it { should(have_field(:narrow_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Home Page - Narrow By DD => Flavors" do
@@ -44,9 +44,9 @@ describe "Homework Final" do
     it { should(have_field(:flavors_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - By Flavor DD => Chocolate" do
@@ -71,9 +71,9 @@ describe "Homework Final" do
     it { should(have_field(:scoops2_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should_not(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - By Flavor/Scoops DD => 3 Scoops" do
@@ -101,9 +101,9 @@ describe "Homework Final" do
     it { should_not(have_field(:scoops2_dd)) }
     it { should_not have_button('Submit') }
     it { should have_button('Reset') }
-    it { should_not(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should_not(have_selector('td', {:text => 'Little Red'})) }
+    it { should_not(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - Reset" do
@@ -133,9 +133,9 @@ describe "Homework Final" do
     it { should_not(have_field(:scoops2_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - Narrow By DD => Scoops" do
@@ -156,9 +156,9 @@ describe "Homework Final" do
     it { should(have_field(:scoops_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Fudge Slide'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Fudge Slide', :href => proddetail_path(pid: 2))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - By Scoops DD => 3 Scoops" do
@@ -183,9 +183,9 @@ describe "Homework Final" do
     it { should(have_field(:flavors2_dd)) }
     it { should have_button('Submit') }
     it { should have_button('Reset') }
-    it { should(have_selector('td', {:text => 'Mt. Everest'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should_not(have_selector('td', {:text => 'Little Red'})) }
+    it { should(have_link('Mt. Everest', :href => proddetail_path(pid: 9))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   describe "Homework Final Home Page - By Scoops/Flavors DD => Chocolate" do
@@ -213,9 +213,9 @@ describe "Homework Final" do
     it { should_not(have_field(:flavors2_dd)) }
     it { should_not have_button('Submit') }
     it { should have_button('Reset') }
-    it { should_not(have_selector('td', {:text => 'Mt. Everest'})) }
-    it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    it { should_not(have_selector('td', {:text => 'Little Red'})) }
+    it { should_not(have_link('Mt. Everest', :href => proddetail_path(pid: 9))) }
+    it { should(have_link('Chocozilla', :href => proddetail_path(pid: 3))) }
+    it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
   #describe "HW2 Page 2" do

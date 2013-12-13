@@ -110,11 +110,13 @@
         ";
         }
 
-        if (IsSet($_GET['adminButton']) && ($_GET['adminButton'] == "Restock"))
+        if (IsSet($_GET['adminButton']) && ($_GET['adminButton'] ==
+        "Restock"))
         {
         $pid = $_GET['pid'];
 
-        $selectCommand = "SELECT pname, image, stock FROM nevermelt WHERE pid =
+        $selectCommand = "SELECT pname, image, stock FROM nevermelt WHERE pid
+        =
         $pid;";
 
         $rs3 = mysqli_query($conn,$selectCommand) or die ("Couldn't execute

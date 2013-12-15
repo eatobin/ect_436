@@ -9,7 +9,7 @@ describe "Homework Final" do
     it { should(have_selector('h1', {:text => heading})) }
   end
 
-  describe "Home Page" do
+  describe "NeverMelt" do
     before { visit nevermelt_path }
 
     let(:page_title) { 'Final' }
@@ -26,7 +26,7 @@ describe "Homework Final" do
     it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Home Page - Narrow By DD => Flavors" do
+  describe "NeverMelt - Narrow By DD => Flavors" do
     before do
       visit nevermelt_path
       select('Flavors', {:from => :narrow_dd})
@@ -49,7 +49,7 @@ describe "Homework Final" do
     it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - By Flavor DD => Chocolate" do
+  describe "Homework Final NeverMelt - By Flavor DD => Chocolate" do
     before do
       visit nevermelt_path
       select('Flavors', {:from => :narrow_dd})
@@ -76,7 +76,7 @@ describe "Homework Final" do
     it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - By Flavor/Scoops DD => 3 Scoops" do
+  describe "Homework Final NeverMelt - By Flavor/Scoops DD => 3 Scoops" do
     before do
       visit nevermelt_path
       select('Flavors', {:from => :narrow_dd})
@@ -106,7 +106,7 @@ describe "Homework Final" do
     it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - Reset" do
+  describe "Homework Final NeverMelt - Reset" do
     before do
       visit nevermelt_path
       select('Flavors', {:from => :narrow_dd})
@@ -138,7 +138,7 @@ describe "Homework Final" do
     it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - Narrow By DD => Scoops" do
+  describe "Homework Final NeverMelt - Narrow By DD => Scoops" do
     before do
       visit nevermelt_path
       select('Scoops', {:from => :narrow_dd})
@@ -161,7 +161,7 @@ describe "Homework Final" do
     it { should(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - By Scoops DD => 3 Scoops" do
+  describe "Homework Final NeverMelt - By Scoops DD => 3 Scoops" do
     before do
       visit nevermelt_path
       select('Scoops', {:from => :narrow_dd})
@@ -188,7 +188,7 @@ describe "Homework Final" do
     it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "Homework Final Home Page - By Scoops/Flavors DD => Chocolate" do
+  describe "Homework Final NeverMelt - By Scoops/Flavors DD => Chocolate" do
     before do
       visit nevermelt_path
       select('Scoops', {:from => :narrow_dd})
@@ -218,7 +218,7 @@ describe "Homework Final" do
     it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  describe "proddetail" do
+  describe "ProdDetail" do
     before do
       visit nevermelt_path
       click_link('Chocozilla')
@@ -241,7 +241,7 @@ describe "Homework Final" do
     it { should have_button('Back To Treats') }
   end
 
-  describe "badquant" do
+  describe "BadQuant" do
     before do
       visit nevermelt_path
       click_link('Brown Derby')
@@ -255,15 +255,19 @@ describe "Homework Final" do
     it { should(have_link('Return Home', href: root_path)) }
 
     it { should have_button('Return To Item') }
+  end
 
-    #it { should(have_selector('td', {:text => 'Chocozilla'})) }
-    #it { should(have_selector('td',
-    #                          {:text => 'Three softball-sized scoops of to-die-for chocolate.'})) }
-    #it { should(have_selector('td', {:text => 'Chocolate'})) }
-    #it { should(have_selector('td', {:text => '3 Scoops'})) }
-    #it { should(have_selector('td', {:text => '$6.00'})) }
-    #it { should(have_selector('td', {:text => '20'})) }
-    #it { should(have_css("img[src='/assets/choc3.gif']")) }
-    #it { should(have_css("img[alt='Choc3']")) }
+  describe "BadQuant And Back To ProdDetail" do
+    before do
+      visit nevermelt_path
+      click_link('Brown Derby')
+
+      select('3', {:from => :quant_dd})
+      click_button("Purchase")
+      click_button("Return To Item")
+    end
+
+    it { should(have_title(full_title('ProdDetail'))) }
+    it { should(have_selector('h4', {:text => 'How many would you like?:'})) }
   end
 end

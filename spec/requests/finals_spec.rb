@@ -218,27 +218,52 @@ describe "Homework Final" do
     it { should_not(have_link('Little Red', :href => proddetail_path(pid: 4))) }
   end
 
-  #describe "HW2 Page 2" do
-  #  before do
-  #    visit hw2_path
-  #    fill_in(:query, {:with => 'This is a test!'})
-  #    click_button("Send It!")
-  #  end
-  #
-  #  let(:page_title) { '2 - 2' }
-  #  let(:heading) { "Here's the sentence you sent from the first page:" }
-  #
-  #  it_should_behave_like("all site pages")
-  #
-  #  # works!
-  #  # it "should have the title 'EAT ECT 436 | 2 - 2'" do
-  #  #   expect(page).to have_selector('title', {:text => full_title('2 - 2'), :visible => false})
-  #  # end
-  #
-  #  it { should(have_link('Return Home', href: root_path)) }
-  #  it { should(have_content('This is a test!')) }
-  #  it { should(have_content('["This", "is", "a", "test!"]')) }
-  #  it { should(have_content('["test!", "a", "is", "This"]')) }
-  #  it { should(have_content('test!*a*is*This')) }
-  #end
+  describe "proddetail" do
+    before do
+      visit nevermelt_path
+      click_link('Chocozilla')
+    end
+
+    it { should(have_title(full_title('ProdDetail'))) }
+    it { should(have_selector('h4', {:text => 'How many would you like?:'})) }
+
+    it { should(have_link('Return Home', href: root_path)) }
+    it { should(have_selector('td', {:text => 'Chocozilla'})) }
+    it { should(have_selector('td',
+                              {:text => 'Three softball-sized scoops of to-die-for chocolate.'})) }
+    it { should(have_selector('td', {:text => 'Chocolate'})) }
+    it { should(have_selector('td', {:text => '3 Scoops'})) }
+    it { should(have_selector('td', {:text => '$6.00'})) }
+    it { should(have_selector('td', {:text => '20'})) }
+    it { should(have_css("img[src='/assets/choc3.gif']")) }
+    it { should(have_css("img[alt='Choc3']")) }
+    it { should have_button('Purchase') }
+    it { should have_button('Back To Treats') }
+  end
+
+  describe "badquant" do
+    before do
+      visit nevermelt_path
+      click_link('Brown Derby')
+
+      select('3', {:from => :quant_dd})
+      click_button("Purchase")
+    end
+
+    it { should(have_title(full_title('BadQuant'))) }
+    it { should(have_selector('h4', {:text => 'Sorry, but you have requested more items than we have in stock.'})) }
+    it { should(have_link('Return Home', href: root_path)) }
+
+    it { should have_button('Return To Item') }
+
+    #it { should(have_selector('td', {:text => 'Chocozilla'})) }
+    #it { should(have_selector('td',
+    #                          {:text => 'Three softball-sized scoops of to-die-for chocolate.'})) }
+    #it { should(have_selector('td', {:text => 'Chocolate'})) }
+    #it { should(have_selector('td', {:text => '3 Scoops'})) }
+    #it { should(have_selector('td', {:text => '$6.00'})) }
+    #it { should(have_selector('td', {:text => '20'})) }
+    #it { should(have_css("img[src='/assets/choc3.gif']")) }
+    #it { should(have_css("img[alt='Choc3']")) }
+  end
 end

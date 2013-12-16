@@ -270,4 +270,34 @@ describe "Homework Final" do
     it { should(have_title(full_title('ProdDetail'))) }
     it { should(have_selector('h4', {:text => 'How many would you like?:'})) }
   end
+
+  describe "BuyDone-1" do
+    before do
+      visit nevermelt_path
+      click_link('Brown Derby')
+
+      select('1', {:from => :quant_dd})
+      click_button("Purchase")
+    end
+
+    it { should(have_title(full_title('BuyDone'))) }
+    it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
+    it { should(have_css('tr.red', {:text => 'Chocolate'})) }
+    it { should(have_css('tr.red', {:text => '1'})) }
+  end
+
+  describe "BuyDone-2" do
+    before do
+      visit nevermelt_path
+      click_link('Little Red')
+
+      select('1', {:from => :quant_dd})
+      click_button("Purchase")
+    end
+
+    it { should(have_title(full_title('BuyDone'))) }
+    it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
+    it { should(have_css('tr.red', {:text => 'Strawberry'})) }
+    it { should(have_css('tr.red', {:text => '19'})) }
+  end
 end

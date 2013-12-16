@@ -6,7 +6,7 @@ class FinalController < ApplicationController
   end
 
   def buydone
-    if params[:commit] == 'Back To Treats'
+    if params[:back_btn] == 'Back To Treats'
       redirect_to(nevermelt_path)
     end
 

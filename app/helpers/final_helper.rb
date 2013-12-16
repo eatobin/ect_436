@@ -7,6 +7,10 @@ module FinalHelper
     Cone.unscoped.order(:flavor).distinct.pluck(:flavor)
   end
 
+  def names
+    Cone.pluck(:pname)
+  end
+
   def all_cones
     Cone.all
   end
@@ -62,5 +66,9 @@ module FinalHelper
     else
       all_cones
     end
+  end
+
+  def update?
+    !params[:names_dd].present? and params[:purchase_btn] == 'Purchase'
   end
 end

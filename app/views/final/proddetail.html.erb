@@ -90,9 +90,8 @@
             <%= hidden_field_tag :pid, @my_cone.id %>
             <%= hidden_field_tag :stock, @my_cone.stock %>
 
-            <%= submit_tag("Purchase") %>
-            <%= submit_tag("Back To Treats") %>
-
+            <%= submit_tag 'Purchase', {:name => 'purchase_btn'} %>
+            <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
           </div>
 
       <% end %>

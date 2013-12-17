@@ -54,12 +54,8 @@
             </th>
           </tr>
           <% Cone.all.each do |dd| %>
-              <% if update? %>
-                  <% if dd.id == @my_cone.id %>
-                      <tr class="red">
-                  <% else %>
-                      <tr>
-                  <% end %>
+              <% if update? and dd.id == @my_cone.id %>
+                  <tr class="red">
               <% else %>
                   <tr>
               <% end %>

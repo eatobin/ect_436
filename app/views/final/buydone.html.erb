@@ -4,6 +4,10 @@
           color: red;
       }
 
+      div.red {
+          color: red;
+      }
+
       td {
           text-align: center;
           padding: 5px;
@@ -28,8 +32,15 @@
     </td>
   </tr>
   <tr>
-    <td><h4 align="center">
-      <span class="red">Revised inventory (post purchase):</span></h4></td>
+    <td>
+      <h4 align="center">
+        <% if update? %>
+            <span class="red">Revised inventory (post purchase):</span>
+        <% else %>
+            <span>Revised inventory (post purchase):</span>
+        <% end %>
+      </h4>
+    </td>
   </tr>
   <tr>
     <td>
@@ -73,75 +84,64 @@
   <tr>
     <td>
       <div align="center">
-        <h4 align='center'>Wanna be an administrator?:</h4>
-        <%= form_tag(buydone_path, {:method => 'get'}) do %>
-            <div align="center">
-              <%= select_tag(:names_dd, options_for_select(names), prompt: 'Which Cone?') %>
-              <%= submit_tag('Restock', {:name => 'restock_btn'}) %>
-              <%= submit_tag('Back To Treats', {:name => 'back_btn'}) %>
-            </div>
+        <% if update? or restock_bad? %>
+            <h4 align='center'>Wanna be an administrator and restock
+              product?:</h4>
+            <%= form_tag(buydone_path, {:method => 'get'}) do %>
+                <div align="center">
+                  <%= select_tag(:names_dd, options_from_collection_for_select(Cone.all, 'id', 'pname'), prompt: 'Which Cone?') %>
+                  <%= submit_tag('Restock', {:name => 'restock_btn'}) %>
+                  <%= submit_tag('Back To Treats', {:name => 'back_btn'}) %>
+                </div>
+            <% end %>
         <% end %>
-
-
-
-
-
-
-
-
-
-        <table border='0' bordercolor='#ffffff' align='center' cellpadding='0' cellspacing='0'
-               style='background-color:#B3E7FF;'>
-
-          <tr>
-
-            <td>
-              <div align='center'>Restock:</div>
-            </td>
-
-            <td>
-              <div align='center'></div>
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>
-              <div align='center'>
-                <img src='$image' alt='' width='70' height='70'/></div>
-            </td>
-
-            <td>
-              <div align='center'>
-                <form action='inventory.php' method='GET'>
-                  <input type='submit' name='restockButton'
-                         value='Restock'/><input type='hidden' name='pid' value='$pid'/><input type='hidden' name='stock' value='$stock'/>
-                </form>
-              </div>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td>
-              <div align='center'>$pname?</div>
-            </td>
-
-            <td>
-              <div align='center'></div>
-            </td>
-
-          </tr>
-
-        </table>
-
+        <% unless update? or restock_bad? %>
+            <% @restock_cone = Cone.where({:id => params[:names_dd]}).first %>
+            <table border='0' bordercolor='#ffffff' align='center' cellpadding='0' cellspacing='0'
+                   style='background-color:#B3E7FF;'>
+              <tr>
+                <td>
+                  <div class="red" align='center'>Restock:</div>
+                </td>
+                <td>
+                  <div align='center'></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div align='center'>
+                    <%= image_tag "#{@restock_cone.image}", size: '70' %>
+                  </div>
+                </td>
+                <td>
+                  <div align='center'>
+                    <%= form_tag(buydone_path, {:method => 'get'}) do %>
+                        <div align="center">
+                          <%= submit_tag('Restock', {:name => 'restock_btn2'}) %>
+                          or
+                          <%= submit_tag('Back To Treats', {:name => 'back_btn2'}) %>
+                        </div>
+                        <%= hidden_field_tag :pid, @restock_cone.id %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div align='center'><%= @restock_cone.pname %></div>
+                </td>
+                <td>
+                  <div align='center'></div>
+                </td>
+              </tr>
+            </table>
+        <% end %>
       </div>
     </td>
   </tr>
   <tr>
     <td>
-      <div align="center"><%= image_tag "bottom-banner.gif" %></div>
+      <div align="center"><%= image_tag 'bottom-banner.gif' %></div>
     </td>
   </tr>
 </table>

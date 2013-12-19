@@ -71,4 +71,8 @@ module FinalHelper
   def update?
     !params[:names_dd].present? and params[:purchase_btn] == 'Purchase'
   end
+
+  def restock_bad?
+    params[:names_dd].empty? and params[:restock_btn] == 'Restock'
+  end
 end

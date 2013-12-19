@@ -67,6 +67,8 @@
           <% Cone.all.each do |dd| %>
               <% if update? and dd.id == @my_cone.id %>
                   <tr class="red">
+              <% # TODO elsif restock_good? and dd.id == params[:names_dd] %>
+                  <tr class="red">
               <% else %>
                   <tr>
               <% end %>

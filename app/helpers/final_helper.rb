@@ -73,6 +73,10 @@ module FinalHelper
   end
 
   def restock_bad?
-    params[:names_dd].empty? and params[:restock_btn] == 'Restock'
+    # TODO (params[:names_dd].empty? or !params[:names_dd].present?) and params[:restock_btn] == 'Restock'
+  end
+
+  def restock_good?
+    # TODO (!params[:names_dd].nil? or params[:names_dd].present?) and params[:restock_btn] == 'Restock'
   end
 end

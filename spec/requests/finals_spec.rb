@@ -284,6 +284,10 @@ describe "Homework Final" do
     it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
     it { should(have_css('tr.red', {:text => 'Chocolate'})) }
     it { should(have_css('tr.red', {:text => '1'})) }
+    it { should(have_selector('h4', {:text => 'Wanna be an administrator and restock product?:'})) }
+    it { should(have_field(:names_dd)) }
+    it { should(have_button('Restock')) }
+    it { should(have_button('Back To Treats')) }
   end
 
   describe "BuyDone-2" do
@@ -299,5 +303,9 @@ describe "Homework Final" do
     it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
     it { should(have_css('tr.red', {:text => 'Strawberry'})) }
     it { should(have_css('tr.red', {:text => '19'})) }
+    it { should(have_selector('h4', {:text => 'Wanna be an administrator and restock product?:'})) }
+    it { should(have_field(:names_dd)) }
+    it { should(have_button('Restock')) }
+    it { should(have_button('Back To Treats')) }
   end
 end

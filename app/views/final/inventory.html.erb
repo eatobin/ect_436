@@ -38,7 +38,7 @@
         <tr>
           <td>
             <% if inventory2? %>
-                <div align='center'>Thank You. Bye!</div>
+                <div align='center'></div>
             <% else %>
                 <div class="red" align='center'>Restock:</div>
             <% end %>
@@ -47,7 +47,7 @@
         <tr>
           <td>
             <% if inventory2? %>
-                <div align='center'>Thank You. BXXXXXe!</div>
+                <div align='center'>Thank You. Bye!</div>
             <% else %>
                 <div align='center'>
                   <%= image_tag "#{@my_cone.image}", size: '70' %>
@@ -57,7 +57,9 @@
           <td>
             <div align='center'>
               <% if inventory2? %>
-                  <div align='center'>Thank You. Oh Moooo!</div>
+                  <%= form_tag(inventory_path, {:method => "get"}) do %>
+                      <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
+                  <% end %>
               <% else %>
                   <%= form_tag(inventory_path, {:method => "get"}) do %>
                       <% @choices = %w{ 1 2 3 4 5 6 7 8 9 10 } %>
@@ -75,7 +77,11 @@
         </tr>
         <tr>
           <td>
-            <div class="red" align='center'><%= @my_cone.pname %></div>
+            <% if inventory2? %>
+                <div align='center'></div>
+            <% else %>
+                <div class="red" align='center'><%= @my_cone.pname %></div>
+            <% end %>
           </td>
           <td>
             <div align='center'></div>

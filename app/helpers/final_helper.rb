@@ -75,4 +75,12 @@ module FinalHelper
   def buydone2?
     params[:restock_btn] == 'Restock'
   end
+
+  def inventory1?
+    params[:restock_btn2] == 'Restock'
+  end
+
+  def inventory2?
+    params[:inventory_btn] == 'Add Inventory'
+  end
 end

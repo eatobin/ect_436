@@ -19,7 +19,7 @@ class FinalController < ApplicationController
   end
 
   def inventory
-    if params[:back_btn2] == 'Back To Treats'
+    if params[:back_btn] == 'Back To Treats'
       redirect_to(nevermelt_path)
     end
   end

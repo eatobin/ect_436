@@ -308,4 +308,28 @@ describe "Homework Final" do
     it { should(have_button('Restock')) }
     it { should(have_button('Back To Treats')) }
   end
+
+  describe 'inventory' do
+    before do
+      visit nevermelt_path
+      click_link('Little Red')
+
+      select('1', {:from => :quant_dd})
+      click_button('Purchase')
+
+      click_button('Restock')
+      #click_button('Restock')
+    end
+
+    it { should(have_title(full_title('BuyDone'))) }
+    it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
+    it { should_not(have_css('tr.red', {:text => 'Strawberry'})) }
+    it { should(have_css('div.red', {:text => 'Restock:'})) }
+    it { should(have_css('div.red', {:text => 'Brown Derby'})) }
+    it { should(have_css('tr.red', {:text => 'Chocolate'})) }
+    it { should_not(have_selector('h4', {:text => 'Wanna be an administrator and restock product?:'})) }
+    it { should_not(have_field(:names_dd)) }
+    it { should(have_button('Restock')) }
+    it { should(have_button('Back To Treats')) }
+  end
 end

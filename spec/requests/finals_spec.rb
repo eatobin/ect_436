@@ -62,7 +62,7 @@ describe "Homework Final" do
     let(:page_title) { 'Final' }
     let(:heading) { 'NeverMelt Menu' }
 
-    it_should_behave_like("all site pages")
+    it_should_behave_like('all site pages')
     it { should(have_link('Return Home', href: root_path)) }
 
     it { should(have_content('Chocolate')) }
@@ -79,6 +79,7 @@ describe "Homework Final" do
   describe "Homework Final NeverMelt - By Flavor/Scoops DD => 3 Scoops" do
     before do
       visit nevermelt_path
+      #noinspection RubyArgCount
       select('Flavors', {:from => :narrow_dd})
       click_button("Submit")
 
@@ -295,6 +296,7 @@ describe "Homework Final" do
       visit nevermelt_path
       click_link('Little Red')
 
+      #noinspection RubyArgCount
       select('1', {:from => :quant_dd})
       click_button("Purchase")
     end
@@ -314,11 +316,11 @@ describe "Homework Final" do
       visit nevermelt_path
       click_link('Little Red')
 
+      #noinspection RubyArgCount
       select('1', {:from => :quant_dd})
       click_button('Purchase')
 
       click_button('Restock')
-      #click_button('Restock')
     end
 
     it { should(have_title(full_title('BuyDone'))) }
@@ -331,5 +333,29 @@ describe "Homework Final" do
     it { should_not(have_field(:names_dd)) }
     it { should(have_button('Restock')) }
     it { should(have_button('Back To Treats')) }
+  end
+
+  describe 'inventory-2' do
+    before do
+      visit nevermelt_path
+      click_link('Little Red')
+
+      select('1', {:from => :quant_dd})
+      click_button('Purchase')
+
+      click_button('Restock')
+      click_button('Restock')
+    end
+
+    it { should(have_title(full_title('BuyDone'))) }
+    #it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
+    #it { should_not(have_css('tr.red', {:text => 'Strawberry'})) }
+    #it { should(have_css('div.red', {:text => 'Restock:'})) }
+    #it { should(have_css('div.red', {:text => 'Brown Derby'})) }
+    #it { should(have_css('tr.red', {:text => 'Chocolate'})) }
+    #it { should_not(have_selector('h4', {:text => 'Wanna be an administrator and restock product?:'})) }
+    #it { should_not(have_field(:names_dd)) }
+    #it { should(have_button('Restock')) }
+    #it { should(have_button('Back To Treats')) }
   end
 end

@@ -340,6 +340,7 @@ describe "Homework Final" do
       visit nevermelt_path
       click_link('Little Red')
 
+      #noinspection RubyArgCount
       select('1', {:from => :quant_dd})
       click_button('Purchase')
 

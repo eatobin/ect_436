@@ -348,15 +348,45 @@ describe "Homework Final" do
       click_button('Restock')
     end
 
-    it { should(have_title(full_title('BuyDone'))) }
-    #it { should(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
-    #it { should_not(have_css('tr.red', {:text => 'Strawberry'})) }
-    #it { should(have_css('div.red', {:text => 'Restock:'})) }
-    #it { should(have_css('div.red', {:text => 'Brown Derby'})) }
-    #it { should(have_css('tr.red', {:text => 'Chocolate'})) }
-    #it { should_not(have_selector('h4', {:text => 'Wanna be an administrator and restock product?:'})) }
-    #it { should_not(have_field(:names_dd)) }
-    #it { should(have_button('Restock')) }
-    #it { should(have_button('Back To Treats')) }
+    it { should(have_title(full_title('Inventory'))) }
+    it { should_not(have_selector('h4', {:text => 'Revised inventory (post purchase):'})) }
+    it { should(have_css('tr.red', {:text => 'Brown Derby'})) }
+    it { should(have_css("img[src='/assets/choc1.gif']")) }
+    it { should(have_field(:quant_dd)) }
+    it { should(have_button('Add Inventory')) }
+    it { should(have_button('Back To Treats')) }
+  end
+
+  describe 'inventory-3' do
+    before do
+      visit nevermelt_path
+      click_link('Little Red')
+
+      #noinspection RubyArgCount
+      select('1', {:from => :quant_dd})
+      click_button('Purchase')
+
+      click_button('Restock')
+      click_button('Restock')
+
+      @my_cone = Cone.where({:id => 1})
+      @i_quant = @my_cone.first.stock
+
+      select('10', {:from => :quant_dd})
+      click_button('Add Inventory')
+
+      @my_cone2 = Cone.where({:id => 1})
+      @r_quant = @my_cone2.first.stock
+      @stock_diff = @r_quant - @i_quant
+    end
+
+    it { should(have_title(full_title('Inventory'))) }
+    it { should(have_css('tr.magenta', {:text => 'Brown Derby'})) }
+    it { should(have_css('div.magenta', {:text => 'Thank You! Bye'})) }
+    it "should increase inventory by 10" do
+      @stock_diff.should == 10
+    end
+    it { should_not(have_button('Add Inventory')) }
+    it { should(have_button('Back To Treats')) }
   end
 end

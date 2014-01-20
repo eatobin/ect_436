@@ -88,3 +88,13 @@ end
 def all_cones3
   all_cones.order(:id)
 end
+
+class Slot
+  attr_reader :name, :start, :end
+
+  def initialize
+    @name = 'Slot_new'
+    @start = Time.new(2014)
+    @end = @start + 1800
+  end
+end

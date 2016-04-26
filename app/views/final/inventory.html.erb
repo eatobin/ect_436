@@ -1,34 +1,34 @@
 <head>
   <style>
-      span.red {
-          color: red;
-      }
+    span.red {
+      color: red;
+    }
 
-      div.red {
-          color: red;
-      }
+    div.red {
+      color: red;
+    }
 
-      div.magenta {
-          color: darkmagenta;
-      }
+    div.magenta {
+      color: darkmagenta;
+    }
 
-      td {
-          text-align: center;
-          padding: 5px;
-      }
+    td {
+      text-align: center;
+      padding: 5px;
+    }
 
-      tr.red {
-          color: red;
-      }
+    tr.red {
+      color: red;
+    }
 
-      tr.magenta {
-          color: darkmagenta;
-      }
+    tr.magenta {
+      color: darkmagenta;
+    }
   </style>
 </head>
 <% provide(:title, 'Inventory') %>
 <% if inventory2? %>
-    <% Cone.update(params[:pid], :stock => (params[:stock].to_i + params[:quant_dd].to_i)) %>
+  <% Cone.update(params[:pid], :stock => (params[:stock].to_i + params[:quant_dd].to_i)) %>
 <% end %>
 <% @my_cone = Cone.where({:id => params[:pid]}).first %>
 
@@ -46,39 +46,39 @@
         <tr>
           <td>
             <% if inventory2? %>
-                <div align='center'></div>
+              <div align='center'></div>
             <% else %>
-                <div class="red" align='center'>Restock:</div>
+              <div class="red" align='center'>Restock:</div>
             <% end %>
           </td>
         </tr>
         <tr>
           <td>
             <% if inventory2? %>
-                <div class="magenta" align='center'>Thank You! Bye!</div>
+              <div class="magenta" align='center'>Thank You! Bye!</div>
             <% else %>
-                <div align='center'>
-                  <%= image_tag "#{@my_cone.image}", size: '70' %>
-                </div>
+              <div align='center'>
+                <%= image_tag "#{@my_cone.image}", size: '70' %>
+              </div>
             <% end %>
           </td>
           <td>
             <div align='center'>
               <% if inventory2? %>
-                  <%= form_tag(inventory_path, {:method => "get"}) do %>
-                      <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
-                  <% end %>
+                <%= form_tag(inventory_path, {:method => "get"}) do %>
+                  <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
+                <% end %>
               <% else %>
-                  <%= form_tag(inventory_path, {:method => "get"}) do %>
-                      <% @choices = %w{ 1 2 3 4 5 6 7 8 9 10 } %>
-                      <%= select_tag(:quant_dd, options_for_select(@choices, '1')) %>
+                <%= form_tag(inventory_path, {:method => "get"}) do %>
+                  <% @choices = %w{ 1 2 3 4 5 6 7 8 9 10 } %>
+                  <%= select_tag(:quant_dd, options_for_select(@choices, '1')) %>
 
-                      <%= hidden_field_tag :pid, @my_cone.id %>
-                      <%= hidden_field_tag :stock, @my_cone.stock %>
+                  <%= hidden_field_tag :pid, @my_cone.id %>
+                  <%= hidden_field_tag :stock, @my_cone.stock %>
 
-                      <%= submit_tag 'Add Inventory', {:name => 'inventory_btn'} %>
-                      <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
-                  <% end %>
+                  <%= submit_tag 'Add Inventory', {:name => 'inventory_btn'} %>
+                  <%= submit_tag 'Back To Treats', {:name => 'back_btn'} %>
+                <% end %>
               <% end %>
             </div>
           </td>
@@ -86,9 +86,9 @@
         <tr>
           <td>
             <% if inventory2? %>
-                <div align='center'></div>
+              <div align='center'></div>
             <% else %>
-                <div class="red" align='center'><%= @my_cone.pname %></div>
+              <div class="red" align='center'><%= @my_cone.pname %></div>
             <% end %>
           </td>
           <td>
@@ -120,19 +120,19 @@
             </th>
           </tr>
           <% Cone.all.each do |dd| %>
-              <% if dd.id == @my_cone.id and inventory2? %>
-                  <tr class="magenta">
-              <% elsif dd.id == @my_cone.id %>
-                  <tr class="red">
-              <% else %>
-                  <tr>
-              <% end %>
-              <td align="center"><%= dd.pname %></td>
-              <td align="center"><%= dd.flavor %></td>
-              <td align="center"><%= dd.scoops %></td>
-              <td align="center"><%= number_to_currency(dd.price) %></td>
-              <td align="center"><%= dd.stock %></td>
-              </tr>
+            <% if dd.id == @my_cone.id and inventory2? %>
+              <tr class="magenta">
+            <% elsif dd.id == @my_cone.id %>
+              <tr class="red">
+            <% else %>
+              <tr>
+            <% end %>
+            <td align="center"><%= dd.pname %></td>
+            <td align="center"><%= dd.flavor %></td>
+            <td align="center"><%= dd.scoops %></td>
+            <td align="center"><%= number_to_currency(dd.price) %></td>
+            <td align="center"><%= dd.stock %></td>
+            </tr>
           <% end %>
         </table>
       </div>

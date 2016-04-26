@@ -15,11 +15,11 @@ And it's
   </tr>
 
   <% Employee.all.sort_by { |n| n[:ename] }.each do |e| %>
-      <tr>
-        <td><%= e.empno %></td>
-        <td><%= e.ename %></td>
-        <td><%= e.deptno %></td>
-      </tr>
+    <tr>
+      <td><%= e.empno %></td>
+      <td><%= e.ename %></td>
+      <td><%= e.deptno %></td>
+    </tr>
   <% end %>
 </table>
 
@@ -33,11 +33,11 @@ And it's
   </tr>
 
   <% @my_dept.employees.sort_by { |n| n[:ename] }.each do |e| %>
-      <tr>
-        <td><%= e.empno %></td>
-        <td><%= e.ename %></td>
-        <td><%= e.deptno %></td>
-      </tr>
+    <tr>
+      <td><%= e.empno %></td>
+      <td><%= e.ename %></td>
+      <td><%= e.deptno %></td>
+    </tr>
   <% end %>
 </table>
 

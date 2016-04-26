@@ -5,9 +5,9 @@
 <h3>Doesn't matter... He says:</h3>
 
 <%= form_tag(hw2p2_path, {:method => "get"}) do %>
-    <%= label_tag(:query, "Type a sentence and I'll reverse it (50 characters max):") %>
-    <br/>
-    <br/>
-    <%= text_field_tag(:query, nil, {:maxlength => 50, :autofocus => true}) %>
-    <%= submit_tag("Send It!") %>
+  <%= label_tag(:query, "Type a sentence and I'll reverse it (50 characters max):") %>
+  <br/>
+  <br/>
+  <%= text_field_tag(:query, nil, {:maxlength => 50, :autofocus => true}) %>
+  <%= submit_tag("Send It!") %>
 <% end %>

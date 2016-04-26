@@ -13,11 +13,11 @@
 
   <% @depts = Department.all.sort_by { |d| d[:dname] } %>
   <% @depts.each do |dd| %>
-      <tr>
-        <td><%= dd.deptno %></td>
-        <td><%= dd.dname %></td>
-        <td><%= dd.loc %></td>
-      </tr>
+    <tr>
+      <td><%= dd.deptno %></td>
+      <td><%= dd.dname %></td>
+      <td><%= dd.loc %></td>
+    </tr>
   <% end %>
 </table>
 
@@ -25,6 +25,6 @@
   constructed from the table above:</h3>
 
 <%= form_tag(hw4p2_path, {:method => "get"}) do %>
-    <%= select_tag(:dname_dd, options_from_collection_for_select(@depts, :deptno, :dname, selected=1)) %>
-    <%= submit_tag("Select Department") %>
+  <%= select_tag(:dname_dd, options_from_collection_for_select(@depts, :deptno, :dname, selected=1)) %>
+  <%= submit_tag("Select Department") %>
 <% end %>

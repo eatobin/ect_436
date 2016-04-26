@@ -1,71 +1,71 @@
 <head>
   <style>
-      span.red {
-          color: red;
-      }
+    span.red {
+      color: red;
+    }
 
-      span.small_red {
-          font-size: 80%;
-          color: red;
-      }
+    span.small_red {
+      font-size: 80%;
+      color: red;
+    }
 
-      td {
-          text-align: center;
-          padding: 15px;
-      }
+    td {
+      text-align: center;
+      padding: 15px;
+    }
   </style>
 </head>
 <% provide(:title, '5') %>
 <h1>Choose An Ice Cream Cone (use the DDL if you'd like):</h1>
 <%= form_tag(hw5_path, {:method => "get"}) do %>
-    <% if first? %>
-        <%= select_tag(:narrow_dd, "<option>Scoops</option><option>Flavors</option>", prompt: "Narrow By:") %>
-        <%= submit_tag "Submit", {:name => "narrow_btn]"} %>
+  <% if first? %>
+    <%= select_tag(:narrow_dd, "<option>Scoops</option><option>Flavors</option>", prompt: "Narrow By:") %>
+    <%= submit_tag "Submit", {:name => "narrow_btn]"} %>
+  <% end %>
+  <% if second? %>
+    <span class="red"><%= params[:narrow_dd] %></span>
+    <% if params[:narrow_dd] == "Scoops" %>
+      <%= select_tag(:scoops_dd, options_for_select(scoops), prompt: "How Many?") %>
+      <%= submit_tag "Submit", {:name => "scoops_btn"} %>
     <% end %>
-    <% if second? %>
-        <span class="red"><%= params[:narrow_dd] %></span>
-        <% if params[:narrow_dd] == "Scoops" %>
-            <%= select_tag(:scoops_dd, options_for_select(scoops), prompt: "How Many?") %>
-            <%= submit_tag "Submit", {:name => "scoops_btn"} %>
-        <% end %>
-        <% if params[:narrow_dd] == "Flavors" %>
-            <%= select_tag(:flavors_dd, options_for_select(flavors), prompt: "Which One?") %>
-            <%= submit_tag "Submit", {:name => "flavors_btn"} %>
-        <% end %>
+    <% if params[:narrow_dd] == "Flavors" %>
+      <%= select_tag(:flavors_dd, options_for_select(flavors), prompt: "Which One?") %>
+      <%= submit_tag "Submit", {:name => "flavors_btn"} %>
+    <% end %>
 
+  <% end %>
+  <% if third? %>
+    <% if params[:scoops_btn] == "Submit" %>
+      <span class="red"><%= params[:scoops_dd] %></span>
+      <%= select_tag(:flavors2_dd, options_for_select(flavors), prompt: "Which Flavor?") %>
+      <%= hidden_field_tag :scoops_dd, params[:scoops_dd] %>
+      <%= submit_tag "Submit", {:name => "flavors2_btn]"} %>
     <% end %>
-    <% if third? %>
-        <% if params[:scoops_btn] == "Submit" %>
-            <span class="red"><%= params[:scoops_dd] %></span>
-            <%= select_tag(:flavors2_dd, options_for_select(flavors), prompt: "Which Flavor?") %>
-            <%= hidden_field_tag :scoops_dd, params[:scoops_dd] %>
-            <%= submit_tag "Submit", {:name => "flavors2_btn]"} %>
-        <% end %>
-        <% if params[:flavors_btn] == "Submit" %>
-            <span class="red"><%= params[:flavors_dd] %></span>
-            <%= select_tag(:scoops2_dd, options_for_select(scoops), prompt: "Scoops?") %>
-            <%= hidden_field_tag :flavors_dd, params[:flavors_dd] %>
-            <%= submit_tag "Submit", {:name => "scoops2_btn]"} %>
-        <% end %>
+    <% if params[:flavors_btn] == "Submit" %>
+      <span class="red"><%= params[:flavors_dd] %></span>
+      <%= select_tag(:scoops2_dd, options_for_select(scoops), prompt: "Scoops?") %>
+      <%= hidden_field_tag :flavors_dd, params[:flavors_dd] %>
+      <%= submit_tag "Submit", {:name => "scoops2_btn]"} %>
     <% end %>
-    <% if fourth? %>
-        <h3><span class="red">Ok... this is it! Only one choice!</span></h3>
-    <% end %>
-    <%= submit_tag "Reset", {:name => "reset_btn]"} %>
-    <h3> Please make a selection<br/>
-      from our menu!</h3>
-    <table border='10'>
+  <% end %>
+  <% if fourth? %>
+    <h3><span class="red">Ok... this is it! Only one choice!</span></h3>
+  <% end %>
+  <%= submit_tag "Reset", {:name => "reset_btn]"} %>
+  <h3> Please make a selection<br/>
+    from our menu!</h3>
+  <table border='10'>
+    <tr>
+      <th>Image<br><span class="small_red">(clickable)</span></th>
+      <th>Name<br><span class="small_red">(clickable)</span></th>
+      <th>Price</th>
+    </tr>
+    <% which_type.each do |dd| %>
       <tr>
-        <th>Image<br><span class="small_red">(clickable)</span></th>
-        <th>Name<br><span class="small_red">(clickable)</span></th>
-        <th>Price</th>
+        <td><%= link_to((image_tag "#{dd.image}", size: "50"), hw5p2_path(pid: dd.id)) %></td>
+        <td><%= link_to("#{dd.pname}", hw5p2_path(pid: dd.id)) %></td>
+        <td><%= number_to_currency(dd.price) %></td>
       </tr>
-      <% which_type.each do |dd| %>
-          <tr>
-            <td><%= link_to((image_tag "#{dd.image}", size: "50"), hw5p2_path(pid: dd.id)) %></td>
-            <td><%= link_to("#{dd.pname}", hw5p2_path(pid: dd.id)) %></td>
-            <td><%= number_to_currency(dd.price) %></td>
-          </tr>
-      <% end %>
-    </table>
+    <% end %>
+  </table>
 <% end %>

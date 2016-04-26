@@ -1,13 +1,13 @@
 <head>
   <style>
-      span.red {
-          color: red;
-      }
+    span.red {
+      color: red;
+    }
 
-      td {
-          text-align: center;
-          padding: 15px;
-      }
+    td {
+      text-align: center;
+      padding: 15px;
+    }
   </style>
 </head>
 <% provide(:title, 'BadQuant') %>
@@ -28,10 +28,10 @@
   <tr>
     <td>
       <%= form_tag(proddetail_path, {:method => "get"}) do %>
-          <div align="center">
-            <%= hidden_field_tag :pid, params[:pid] %>
-            <%= submit_tag("Return To Item") %>
-          </div>
+        <div align="center">
+          <%= hidden_field_tag :pid, params[:pid] %>
+          <%= submit_tag("Return To Item") %>
+        </div>
       <% end %>
     </td>
   </tr>

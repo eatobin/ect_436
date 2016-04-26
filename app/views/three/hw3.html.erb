@@ -1,43 +1,44 @@
 <% unless params[:state] %>
-    <% provide(:title, '3') %>
+  <% provide(:title, '3') %>
 
-    <h1>I hear you're planning a little trip:</h1>
+  <h1>I hear you're planning a little trip:</h1>
 
-    <%= form_tag(hw3_path, {:method => "get"}) do %>
-        <h3><%= label_tag(:state, "Which state do you plan to visit?:") %></h3>
-        <%= select_tag(:state, options_for_select([['Texas'],
-                                                   ['Illinois'],
-                                                   ['Arizona'],
-                                                   ['North Dakota'],
-                                                   ['South Dakota']], 1)) %>
-        <h3><%= label_tag(:pet, "What kind of pet will you bring with you?:") %></h3>
-        <%= radio_button_tag(:pet, 'dog', true) %> Dog <br>
-        <%= radio_button_tag(:pet, 'cat') %> Cat <br>
-        <%= radio_button_tag(:pet, 'horse') %> Horse <br>
-        <%= radio_button_tag(:pet, 'fox') %> Fox <br>
-        <br>
-        <%= submit_tag("Send It!") %>
-    <% end %>
+  <%= form_tag(hw3_path, {:method => "get"}) do %>
+    <h3><%= label_tag(:state, "Which state do you plan to visit?:") %></h3>
+    <%= select_tag(:state, options_for_select([['Texas'],
+                                               ['Illinois'],
+                                               ['Arizona'],
+                                               ['North Dakota'],
+                                               ['South Dakota']], 1)) %>
+    <h3><%= label_tag(:pet, "What kind of pet will you bring with you?:") %></h3>
+    <%= radio_button_tag(:pet, 'dog', true) %> Dog <br>
+    <%= radio_button_tag(:pet, 'cat') %> Cat <br>
+    <%= radio_button_tag(:pet, 'horse') %> Horse <br>
+    <%= radio_button_tag(:pet, 'fox') %> Fox <br>
+    <br>
+    <%= submit_tag("Send It!") %>
+  <% end %>
 <% end %>
 
 <% if params[:state] %>
-    <% provide(:title, '3 - 2') %>
+  <% provide(:title, '3 - 2') %>
 
-    <h1>So, you're going to visit <%= params[:state] %>.</h1>
-    <h3>Great, while you're there be sure to visit the
-      capital <%= return_capital %>
-      and see <%= return_attraction %>!</h3>
-    <h3> <%= return_activity %></h3>
-    <h4>(I used an "if statement" and a "case statement" to build the lines
-      above.)</h4>
-    <h4>Now, let's repeat a sentence five (5) times using '5.times':</h4>
-    <% 5.times do |x| %>
-        <%= "This is repetition #{x} using '5.times' (notice starts at 0)." %><br>
-    <% end %>
-    <h4>Last, I'll repeat a sentence seven (7) times using a '(1..7).each'
-      range:</h4>
-    <% (1..7).each do |x| %>
-        <%= "This is repetition #{x} using '(1..7).each' (starts at 1, not 0!)." %><br>
-    <% end %>
-    <h3>Thanks! Bye!</h3>
+  <h1>So, you're going to visit <%= params[:state] %>.</h1>
+  <h3>Great, while you're there be sure to visit the
+    capital <%= return_capital %>
+    and see <%= return_attraction %>!</h3>
+  <h3> <%= return_activity %></h3>
+  <h4>(I used an "if statement" and a "case statement" to build the lines
+    above.)</h4>
+  <h4>Now, let's repeat a sentence five (5) times using '5.times':</h4>
+  <% 5.times do |x| %>
+    <%= "This is repetition #{x} using '5.times' (notice starts at 0)." %><br>
+  <% end %>
+  <h4>Last, I'll repeat a sentence seven (7) times using a '(1..7).each'
+    range:</h4>
+  <% (1..7).each do |x| %>
+    <%= "This is repetition #{x} using '(1..7).each' (starts at 1, not 0!)." %>
+    <br>
+  <% end %>
+  <h3>Thanks! Bye!</h3>
 <% end %>

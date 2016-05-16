@@ -1,0 +1,8 @@
+gem uninstall nokogiri #If needed!!!
+
+then:
+
+gem install nokogiri -v '1.6.0' -- --with-xml2-include=/usr/include/libxml2/libxml --with-xml2-lib=/usr/lib64/ --with-sxlt-include=/usr/include/libxslt --with-xslt-lib=/usr/lib64/
+
+from:
+http://stackoverflow.com/questions/17396941/on-linux-how-can-i-resolve-warning-nokogiri-was-built-against-libxml-version-2

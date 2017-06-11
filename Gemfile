@@ -11,6 +11,7 @@ gem 'jbuilder'
 gem 'execjs'
 gem 'pg'
 gem 'i18n', '>= 0.6.9'
+gem 'rubocop', '~> 0.49.1', require: false
 
 group :doc do
   gem 'sdoc', require: false

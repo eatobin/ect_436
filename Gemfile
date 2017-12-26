@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.4.2'
 
-gem 'rails', '4.0.1'
+gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -9,8 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'execjs'
-gem 'pg'
-gem 'i18n', '>= 0.6.9'
+gem 'pg', '0.20'
+gem 'i18n'
 gem 'rubocop', '~> 0.49.1', require: false
 
 group :doc do
